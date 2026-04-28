@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Menú Principal | Opti Control</title>
+    <title>Panel Principal | Sistema de Gestión</title>
+    
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -14,30 +15,30 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#1A8D8C",   /* Turquesa */
-                        "secondary": "#6C247B", /* Violeta */
+                        "primary": "#1A8D8C",
+                        "secondary": "#6C247B",
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-[#f8f9ff] font-['Inter'] antialiased">
+<body class="bg-[#f8f9ff] font-['Inter'] antialiased overflow-x-hidden">
 
 <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white border-b border-slate-100 shadow-sm">
     <div class="flex items-center gap-3">
         <span class="material-symbols-outlined text-primary text-3xl">visibility</span>
-        <h1 id="app-name" class="font-manrope font-extrabold text-xl text-primary tracking-tight">OPTI CONTROL</h1>
+        <h1 id="app-name" class="font-manrope font-extrabold text-xl text-primary tracking-tight uppercase">CARGANDO...</h1>
     </div>
     <div class="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center border border-primary/20">
-        <span class="material-symbols-outlined text-primary">person</span>
+        <span class="material-symbols-outlined text-primary font-light">person</span>
     </div>
 </header>
 
 <main class="pt-24 pb-32 px-6 max-w-5xl mx-auto min-h-screen">
     <div class="mb-8">
         <h2 class="text-3xl font-bold text-[#0b1c30] mb-1">Panel Principal</h2>
-        <p class="text-slate-500 text-sm">Gestión de sucursal <span class="text-primary font-bold italic">Opti Control</span></p>
+        <p class="text-slate-500 text-sm">Gestión integral de sucursal profesional.</p>
     </div>
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -47,14 +48,14 @@
             <div class="h-14 w-14 rounded-full bg-teal-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-3xl">group</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm">Pacientes</span>
+            <span class="font-bold text-slate-700 text-sm text-center">Pacientes</span>
         </a>
 
         <a href="historias.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group">
             <div class="h-14 w-14 rounded-full bg-purple-50 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-3xl">medical_information</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm">Historias</span>
+            <span class="font-bold text-slate-700 text-sm text-center">Historias</span>
         </a>
 
         <a href="ordenes.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group relative">
@@ -62,7 +63,7 @@
             <div class="h-14 w-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-3xl">biometrics</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm">Laboratorio</span>
+            <span class="font-bold text-slate-700 text-sm text-center">Laboratorio</span>
         </a>
 
         <a href="agenda.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group relative">
@@ -70,14 +71,14 @@
             <div class="h-14 w-14 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-3xl">calendar_today</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm">Agenda</span>
+            <span class="font-bold text-slate-700 text-sm text-center">Agenda</span>
         </a>
 
         <a href="inicio.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group">
             <div class="h-14 w-14 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm">Gestión</span>
+            <span class="font-bold text-slate-700 text-sm text-center">Gestión</span>
         </a>
 
         <a href="inventario.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group relative">
@@ -85,68 +86,12 @@
             <div class="h-14 w-14 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 group-hover:bg-slate-700 group-hover:text-white transition-colors">
                 <span class="material-symbols-outlined text-3xl">inventory_2</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm">Inventario</span>
+            <span class="font-bold text-slate-700 text-sm text-center">Inventario</span>
         </a>
     </div>
 
-    <footer class="footer mt-12"></footer>
+    <footer class="footer mt-12 text-center text-xs text-slate-400"></footer>
 </main>
 
-<nav class="fixed bottom-0 w-full z-50 bg-white border-t border-slate-200 pb-safe shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
-    <div class="flex justify-around items-center h-16 w-full px-2">
-        <a href="menu.html" class="flex flex-col items-center justify-center text-primary w-full py-1">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
-            <span class="font-manrope text-[10px] font-bold">Panel</span>
-        </a>
-        <a href="inicio.html" class="flex flex-col items-center justify-center text-slate-400 w-full py-1 hover:text-primary">
-            <span class="material-symbols-outlined">analytics</span>
-            <span class="font-manrope text-[10px] font-medium">Gestión</span>
-        </a>
-        <a href="pacientes.html" class="flex flex-col items-center justify-center text-slate-400 w-full py-1 hover:text-primary">
-            <span class="material-symbols-outlined">group</span>
-            <span class="font-manrope text-[10px] font-medium">Pacientes</span>
-        </a>
-        <a href="ordenes.html" class="flex flex-col items-center justify-center text-slate-400 w-full py-1 hover:text-primary">
-            <span class="material-symbols-outlined">shopping_cart</span>
-            <span class="font-manrope text-[10px] font-medium">Órdenes</span>
-        </a>
-    </div>
-</nav>
-
-<script src="api-config.js"></script>
-<script src="app.js"></script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // Datos de ejemplo para los números de las tarjetas
-        const stats = {
-            pacientes: 120,
-            ordenes: 8,
-            agenda: 4,
-            stock: 1 // Alerta de stock bajo
-        };
-
-        // Función para mostrar los números
-        if(stats.pacientes > 0) {
-            const b = document.getElementById('badge-pacientes');
-            b.innerText = stats.pacientes;
-            b.classList.remove('hidden');
-        }
-        if(stats.ordenes > 0) {
-            const b = document.getElementById('badge-ordenes');
-            b.innerText = stats.ordenes;
-            b.classList.remove('hidden');
-        }
-        if(stats.agenda > 0) {
-            const b = document.getElementById('badge-agenda');
-            b.innerText = stats.agenda;
-            b.classList.remove('hidden');
-        }
-        if(stats.stock > 0) {
-            document.getElementById('badge-stock').classList.remove('hidden');
-        }
-    });
-</script>
-
-</body>
+<script src="api-config.js"></script>    <script src="app.js"></script>           <script src="nav-component.js"></script> </body>
 </html>
