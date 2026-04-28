@@ -33,3 +33,14 @@ body {
 .button:hover {
   background: #256f63;
 }
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: var(--secondary);
+  color: var(--white);
+  text-align: center;
+  padding: 8px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
