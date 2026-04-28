@@ -38,3 +38,10 @@ const CONFIG = {
 
 // Congelar el objeto para evitar modificaciones accidentales en tiempo de ejecución
 Object.freeze(CONFIG);
+document.addEventListener('DOMContentLoaded', () => {
+    const appNameElement = document.getElementById('app-name');
+    if (appNameElement) {
+        appNameElement.innerText = CONFIG.nombreOptica;
+    }
+});
+
