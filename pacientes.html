@@ -4,24 +4,20 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Pacientes | Óptica Good Look</title>
+    
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
     <script id="tailwind-config">
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#1A8D8C",   /* Turquesa del logo */
-                        "secondary": "#6C247B", /* Violeta del logo */
+                        "primary": "#1A8D8C",
+                        "secondary": "#6C247B",
                         "surface": "#f8f9ff",
                         "on-background": "#0b1c30",
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
                     }
                 },
             },
@@ -30,33 +26,36 @@
     <style>
         .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
         body { background-color: #f8f9ff; color: #0b1c30; }
-        /* Color personalizado para estados activos */
-        .nav-active { background-color: #f0fdfa; color: #1A8D8C; border-bottom: 2px solid #1A8D8C; }
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+        
+        /* Animación Modal */
+        #modalNuevoPaciente.flex .modal-content { transform: scale(1); opacity: 1; }
+        .modal-content { transform: scale(0.95); opacity: 0; transition: all 0.2s ease-out; }
     </style>
 </head>
-<body class="font-body-md antialiased overflow-x-hidden">
+<body class="font-inter antialiased overflow-x-hidden">
 
 <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white border-b border-slate-100 shadow-sm">
     <div class="flex items-center gap-3">
-        <span class="material-symbols-outlined text-primary text-3xl" data-icon="visibility">visibility</span>
-        <h1 class="font-manrope font-extrabold text-xl text-primary tracking-tight">Pacientes</h1>
+        <span class="material-symbols-outlined text-primary text-3xl">visibility</span>
+        <h1 class="font-manrope font-extrabold text-xl text-primary tracking-tight uppercase">VisionCare</h1>
     </div>
     <div class="flex items-center gap-4">
-        <div class="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center border border-primary/20 overflow-hidden">
+        <div class="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center border border-primary/20 overflow-hidden cursor-pointer">
             <span class="material-symbols-outlined text-primary">person</span>
         </div>
     </div>
 </header>
 
-<main class="pt-20 pb-32 px-4 md:px-8 max-w-5xl mx-auto min-h-screen">
+<main class="pt-24 pb-32 px-4 md:px-8 max-w-5xl mx-auto min-h-screen">
     <div class="mb-8">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
             <div>
-                <h2 class="text-3xl font-bold text-on-background mb-1">Directorio de Pacientes</h2>
-                <p class="text-slate-500">Gestión de historias clínicas y registros ópticos.</p>
+                <h2 class="text-3xl font-bold font-manrope text-on-background mb-1">Directorio de Pacientes</h2>
+                <p class="text-slate-500 text-sm">Gestión de historias clínicas y registros ópticos.</p>
             </div>
-            <div class="text-right">
-                <span class="text-xs font-medium text-slate-400">Quito, Ecuador</span>
+            <div class="text-right hidden md:block">
+                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Quito, Ecuador</span>
             </div>
         </div>
 
@@ -64,88 +63,141 @@
             <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                 <span class="material-symbols-outlined text-slate-400 group-focus-within:text-primary transition-colors">search</span>
             </div>
-            <input class="w-full bg-white border border-slate-200 rounded-xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all shadow-sm" placeholder="Buscar por nombre, cédula o teléfono..." type="text"/>
+            <input id="inputBusqueda" onkeyup="filtrarPacientes()" class="w-full bg-white border border-slate-200 rounded-2xl py-4 pl-12 pr-4 focus:ring-4 focus:ring-primary/10 focus:border-primary outline-none transition-all shadow-sm" placeholder="Buscar por nombre o cédula..." type="text"/>
         </div>
     </div>
 
-    <div class="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-        <div class="grid grid-cols-12 px-6 py-4 bg-slate-50 border-b border-slate-200 text-[10px] font-bold text-slate-500 uppercase tracking-widest">
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="grid grid-cols-12 px-6 py-4 bg-slate-50 border-b border-slate-200 text-[10px] font-black text-slate-500 uppercase tracking-[0.15em]">
             <div class="col-span-7 md:col-span-5">Paciente</div>
-            <div class="col-span-3 md:col-span-3">Identificación</div>
+            <div class="col-span-3 md:col-span-3">Cédula</div>
             <div class="hidden md:block md:col-span-2">Edad</div>
-            <div class="col-span-2 md:col-span-2 text-right">Acción</div>
+            <div class="col-span-2 md:col-span-2 text-right">Ficha</div>
         </div>
 
-        <div class="divide-y divide-slate-100">
-            <div class="grid grid-cols-12 px-6 py-5 items-center hover:bg-teal-50/30 transition-colors group cursor-pointer" onclick="window.location.href='historias.html'">
+        <div id="contenedorPacientes" class="divide-y divide-slate-100">
+            <div class="grid grid-cols-12 px-6 py-5 items-center hover:bg-teal-50/40 transition-colors group cursor-pointer" onclick="verHistoria('Elena Rodriguez')">
                 <div class="col-span-7 md:col-span-5 flex items-center gap-4">
-                    <div class="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold border border-primary/20">ER</div>
+                    <div class="h-11 w-11 rounded-2xl bg-primary/10 flex items-center justify-center text-primary font-bold border border-primary/10">ER</div>
                     <div>
-                        <div class="font-semibold text-on-background group-hover:text-primary transition-colors">Elena Rodriguez</div>
+                        <div class="font-bold text-slate-800 group-hover:text-primary transition-colors">Elena Rodriguez</div>
                         <div class="text-[11px] text-slate-400">Última consulta: 12 Oct 2023</div>
                     </div>
                 </div>
-                <div class="col-span-3 md:col-span-3 text-sm font-mono text-slate-600">1725489632</div>
-                <div class="hidden md:block md:col-span-2 text-sm text-slate-600">34 años</div>
-                <div class="col-span-2 md:col-span-2 text-right text-secondary">
-                    <span class="material-symbols-outlined">arrow_forward_ios</span>
+                <div class="col-span-3 md:col-span-3 text-xs font-mono text-slate-500">1725489632</div>
+                <div class="hidden md:block md:col-span-2 text-xs text-slate-600 font-medium">34 años</div>
+                <div class="col-span-2 md:col-span-2 text-right">
+                    <span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-all">arrow_circle_right</span>
                 </div>
             </div>
 
-            <div class="grid grid-cols-12 px-6 py-5 items-center hover:bg-purple-50/30 transition-colors group cursor-pointer" onclick="window.location.href='historias.html'">
+            <div class="grid grid-cols-12 px-6 py-5 items-center hover:bg-purple-50/40 transition-colors group cursor-pointer" onclick="verHistoria('Ricardo Batista')">
                 <div class="col-span-7 md:col-span-5 flex items-center gap-4">
-                    <div class="h-10 w-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary font-bold border border-secondary/20">RB</div>
+                    <div class="h-11 w-11 rounded-2xl bg-secondary/10 flex items-center justify-center text-secondary font-bold border border-secondary/10">RB</div>
                     <div>
-                        <div class="font-semibold text-on-background group-hover:text-secondary transition-colors">Ricardo Batista</div>
-                        <div class="text-[11px] text-secondary font-medium">Pendiente de entrega</div>
+                        <div class="font-bold text-slate-800 group-hover:text-secondary transition-colors">Ricardo Batista</div>
+                        <div class="text-[11px] text-secondary font-bold uppercase tracking-tighter">Orden pendiente</div>
                     </div>
                 </div>
-                <div class="col-span-3 md:col-span-3 text-sm font-mono text-slate-600">1712457896</div>
-                <div class="hidden md:block md:col-span-2 text-sm text-slate-600">45 años</div>
-                <div class="col-span-2 md:col-span-2 text-right text-secondary">
-                    <span class="material-symbols-outlined">arrow_forward_ios</span>
+                <div class="col-span-3 md:col-span-3 text-xs font-mono text-slate-500">1712457896</div>
+                <div class="hidden md:block md:col-span-2 text-xs text-slate-600 font-medium">45 años</div>
+                <div class="col-span-2 md:col-span-2 text-right">
+                    <span class="material-symbols-outlined text-secondary/40 group-hover:text-secondary transition-all">arrow_circle_right</span>
                 </div>
             </div>
         </div>
 
-        <div class="px-6 py-4 bg-white border-t border-slate-100 flex items-center justify-between">
-            <span class="text-xs text-slate-400 font-medium">Mostrando 5 de 1,240 pacientes</span>
+        <div class="px-6 py-4 bg-slate-50/50 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Fin del directorio</span>
             <div class="flex gap-2">
-                <button class="p-2 border border-slate-200 rounded-lg hover:bg-slate-50"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
-                <button class="p-2 border border-slate-200 rounded-lg hover:bg-slate-50"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
+                <button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded-lg hover:bg-white"><span class="material-symbols-outlined text-sm">chevron_left</span></button>
+                <button class="w-8 h-8 flex items-center justify-center border border-slate-200 rounded-lg hover:bg-white"><span class="material-symbols-outlined text-sm">chevron_right</span></button>
             </div>
         </div>
     </div>
 </main>
 
-<button onclick="window.location.href='pacientes.html'" class="fixed bottom-24 right-6 h-14 w-14 rounded-full bg-secondary text-white shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[60]">
+<div id="modalNuevoPaciente" class="fixed inset-0 bg-on-background/40 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+    <div class="modal-content bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden">
+        <div class="p-8 border-b border-slate-100 flex justify-between items-center bg-secondary text-white">
+            <div>
+                <h2 class="text-2xl font-black font-manrope">Nuevo Paciente</h2>
+                <p class="text-purple-100 text-xs opacity-80 uppercase tracking-widest mt-1">Registro de Historia Clínica</p>
+            </div>
+            <button onclick="cerrarModal()" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        
+        <form id="formPaciente" class="p-8 space-y-5">
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <label class="text-[10px] font-black text-slate-400 uppercase ml-2 mb-2 block">Nombre Completo</label>
+                    <input type="text" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-3 text-sm focus:ring-2 focus:ring-secondary/20" placeholder="Ej. Juan Pérez">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-[10px] font-black text-slate-400 uppercase ml-2 mb-2 block">Cédula</label>
+                        <input type="number" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-3 text-sm focus:ring-2 focus:ring-secondary/20" placeholder="17...">
+                    </div>
+                    <div>
+                        <label class="text-[10px] font-black text-slate-400 uppercase ml-2 mb-2 block">Celular</label>
+                        <input type="tel" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-3 text-sm focus:ring-2 focus:ring-secondary/20" placeholder="09...">
+                    </div>
+                </div>
+                <div>
+                    <label class="text-[10px] font-black text-slate-400 uppercase ml-2 mb-2 block">Ciudad / Dirección</label>
+                    <input type="text" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-3 text-sm focus:ring-2 focus:ring-secondary/20" placeholder="Quito, Sector...">
+                </div>
+            </div>
+        </form>
+
+        <div class="p-8 bg-slate-50 flex gap-3">
+            <button onclick="cerrarModal()" class="flex-1 py-4 text-slate-400 text-xs font-bold uppercase">Cancelar</button>
+            <button onclick="guardarPaciente()" class="flex-[2] py-4 bg-secondary text-white rounded-2xl text-xs font-bold uppercase shadow-lg shadow-purple-200 hover:scale-[1.02] transition-all">Crear Registro</button>
+        </div>
+    </div>
+</div>
+
+<button onclick="abrirModal()" class="fixed bottom-24 right-6 h-14 w-14 rounded-full bg-secondary text-white shadow-xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-[60]">
     <span class="material-symbols-outlined">person_add</span>
 </button>
 
-<nav class="fixed bottom-0 w-full z-50 bg-white border-t border-slate-200 pb-safe shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
-    <div class="flex justify-around items-center h-16 w-full px-2">
-        <a href="inicio.html" class="flex flex-col items-center justify-center text-slate-400 w-full py-1 hover:text-primary">
-            <span class="material-symbols-outlined">dashboard</span>
-            <span class="font-manrope text-[10px] font-medium">Inicio</span>
-        </a>
-        <a href="pacientes.html" class="flex flex-col items-center justify-center text-primary w-full py-1 nav-active">
-            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">group</span>
-            <span class="font-manrope text-[10px] font-bold">Pacientes</span>
-        </a>
-        <a href="historias.html" class="flex flex-col items-center justify-center text-slate-400 w-full py-1 hover:text-primary">
-            <span class="material-symbols-outlined">medical_services</span>
-            <span class="font-manrope text-[10px] font-medium">Clínica</span>
-        </a>
-        <a href="agenda.html" class="flex flex-col items-center justify-center text-slate-400 w-full py-1 hover:text-primary">
-            <span class="material-symbols-outlined">calendar_month</span>
-            <span class="font-manrope text-[10px] font-medium">Agenda</span>
-        </a>
-        <a href="ordenes.html" class="flex flex-col items-center justify-center text-slate-400 w-full py-1 hover:text-primary">
-            <span class="material-symbols-outlined">shopping_cart</span>
-            <span class="font-manrope text-[10px] font-medium">Órdenes</span>
-        </a>
-    </div>
-</nav>
+<script>
+    // Lógica del Modal
+    function abrirModal() {
+        const modal = document.getElementById('modalNuevoPaciente');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function cerrarModal() {
+        const modal = document.getElementById('modalNuevoPaciente');
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+    }
+
+    function guardarPaciente() {
+        alert("Registrando nuevo paciente en la base de datos...");
+        cerrarModal();
+    }
+
+    // Buscador Visual
+    function filtrarPacientes() {
+        const query = document.getElementById('inputBusqueda').value.toLowerCase();
+        console.log("Buscando paciente: " + query);
+        // Aquí conectarías con la lógica de filtrado de tu app.js
+    }
+
+    function verHistoria(nombre) {
+        console.log("Abriendo historia clínica de: " + nombre);
+        window.location.href = 'historias.html';
+    }
+</script>
+
+<script src="api-config.js"></script>
+<script src="app.js"></script>
+<script src="nav-component.js"></script>
 
 </body>
 </html>
