@@ -1,59 +1,80 @@
+/* =========================================
+   PALETA DE COLORES - ÓPTICA GOOD LOOK
+   ========================================= */
 :root {
-  --primary: #2E8B7D;
-  --secondary: #6A1B9A;
-  --white: #FFFFFF;
-  --gray: #F5F5F5;
-  --text: #333;
+  /* Colores principales extraídos del logo */
+  --color-principal: #1A8D8C;   /* Turquesa ÓPTICA */
+  --color-secundario: #6C247B;  /* Violeta Good Look */
+
+  /* Colores de fondo y superficie */
+  --fondo-app: #FFFFFF;         /* Blanco limpio */
+  --superficie-card: #F7F7F7;  /* Gris muy claro para tarjetas */
+
+  /* Colores de texto y bordes */
+  --texto-titulos: #333333;     /* Casi negro para buena lectura */
+  --texto-base: #555555;        /* Gris oscuro para párrafos */
+  --borde-sutil: #DDDDDD;       /* Gris claro para líneas */
+
+  /* Colores para interacción */
+  --hover-principal: #14706F;  /* Turquesa más oscuro para hover */
 }
+
+/* =========================================
+   APLICACIÓN DE ESTILOS GENERALES
+   ========================================= */
 
 body {
-  font-family: Arial, sans-serif;
-  background: var(--gray);
-  margin: 0;
-  padding-bottom: 60px;
+  background-color: var(--fondo-app);
+  color: var(--texto-base);
+  font-family: sans-serif; /* O la fuente que ya tengas */
 }
 
-/* Header */
-.header {
-  background: var(--secondary);
-  color: var(--white);
-  padding: 15px;
-  text-align: center;
-  font-size: 22px;
+/* Encabezados y Títulos */
+h1, h2, h3, h4 {
+  color: var(--color-principal); /* Usamos el turquesa principal */
   font-weight: bold;
 }
 
-/* Contenido */
-.container {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
+h1 {
+  /* Esto hará que el título principal de cada página se vea como el logo */
+  text-transform: uppercase;
 }
 
-/* Botones */
-.button {
-  background: var(--primary);
-  color: var(--white);
-  padding: 12px;
+/* Enlaces (links) */
+a {
+  color: var(--color-principal);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--hover-principal);
+}
+
+/* Botones Principales */
+.btn-primary {
+  background-color: var(--color-principal);
+  color: #FFFFFF;
   border: none;
-  border-radius: 10px;
-  margin: 8px 0;
-  font-size: 16px;
-  cursor: pointer;
 }
 
-.button:hover {
-  background: #256f63;
+.btn-primary:hover {
+  background-color: var(--hover-principal);
 }
 
-/* Footer */
-.footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background: var(--secondary);
-  color: var(--white);
-  text-align: center;
-  padding: 10px;
-  font-size: 12px;
+/* Botones Secundarios o de Acento */
+.btn-accent {
+  background-color: var(--color-secundario); /* Usamos el violeta */
+  color: #FFFFFF;
+  border: none;
+}
+
+/* Iconos de Acento (ej. para WhatsApp) */
+.icon-accent {
+  color: var(--color-secundario);
+}
+
+/* Tarjetas y Contenedores (ej. para lista de pacientes) */
+.card-paciente {
+  background-color: var(--superficie-card);
+  border: 1px solid var(--borde-sutil);
 }
