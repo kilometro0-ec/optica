@@ -1,368 +1,78 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
+<html lang="es">
+<head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface": "#f8f9ff",
-                        "on-secondary-fixed-variant": "#004882",
-                        "on-tertiary-fixed-variant": "#444749",
-                        "inverse-surface": "#213145",
-                        "secondary-container": "#78b3ff",
-                        "primary": "#00355f",
-                        "surface-dim": "#cbdbf5",
-                        "inverse-primary": "#a0c9ff",
-                        "outline-variant": "#c2c7d1",
-                        "on-tertiary": "#ffffff",
-                        "on-primary": "#ffffff",
-                        "tertiary-fixed-dim": "#c4c7c9",
-                        "on-surface": "#0b1c30",
-                        "on-secondary": "#ffffff",
-                        "on-background": "#0b1c30",
-                        "surface-container-high": "#dce9ff",
-                        "on-secondary-fixed": "#001c38",
-                        "surface-container-lowest": "#ffffff",
-                        "on-surface-variant": "#42474f",
-                        "secondary-fixed": "#d3e3ff",
-                        "surface-bright": "#f8f9ff",
-                        "primary-container": "#0f4c81",
-                        "tertiary": "#313436",
-                        "on-error": "#ffffff",
-                        "outline": "#727780",
-                        "surface-container-highest": "#d3e4fe",
-                        "on-tertiary-container": "#b8bbbc",
-                        "surface-container": "#e5eeff",
-                        "error": "#ba1a1a",
-                        "tertiary-container": "#474b4d",
-                        "inverse-on-surface": "#eaf1ff",
-                        "primary-fixed": "#d2e4ff",
-                        "secondary": "#1460a6",
-                        "primary-fixed-dim": "#a0c9ff",
-                        "tertiary-fixed": "#e0e3e5",
-                        "on-secondary-container": "#00457c",
-                        "on-error-container": "#93000a",
-                        "background": "#f8f9ff",
-                        "surface-tint": "#2d6197",
-                        "on-primary-fixed": "#001c37",
-                        "surface-variant": "#d3e4fe",
-                        "secondary-fixed-dim": "#a3c9ff",
-                        "on-primary-container": "#8ebdf9",
-                        "error-container": "#ffdad6",
-                        "on-tertiary-fixed": "#191c1e",
-                        "on-primary-fixed-variant": "#07497d",
-                        "surface-container-low": "#eff4ff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "md": "24px",
-                        "gutter": "24px",
-                        "lg": "48px",
-                        "base": "4px",
-                        "margin": "32px",
-                        "sm": "16px",
-                        "xs": "8px",
-                        "xl": "80px"
-                    },
-                    "fontFamily": {
-                        "h3": ["Manrope"],
-                        "body-md": ["Inter"],
-                        "label-sm": ["Inter"],
-                        "h2": ["Manrope"],
-                        "h1": ["Manrope"],
-                        "body-lg": ["Inter"],
-                        "caption": ["Inter"]
-                    },
-                    "fontSize": {
-                        "h3": ["24px", {"lineHeight": "32px", "letterSpacing": "0", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-                        "h2": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "h1": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
-                    }
-                },
-            },
-        }
-    </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        body { font-family: 'Inter', sans-serif; }
-        .font-manrope { font-family: 'Manrope', sans-serif; }
-    </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-surface text-on-background min-h-screen flex flex-col">
-<!-- TopAppBar -->
-<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white border-b border-slate-100">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-sky-900 text-2xl" data-icon="visibility">visibility</span>
-<h1 class="text-xl font-extrabold text-sky-900 font-manrope tracking-tight">VisionCare</h1>
-</div>
-<div class="flex items-center gap-4">
-<button class="p-2 rounded-full hover:bg-slate-50 transition-colors text-slate-500">
-<span class="material-symbols-outlined" data-icon="search">search</span>
-</button>
-<button class="p-2 rounded-full hover:bg-slate-50 transition-colors text-slate-500 relative">
-<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
-<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"></span>
-</button>
-<div class="h-10 w-10 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
-<img alt="Practitioner Profile" class="w-full h-full object-cover" data-alt="Professional headshot of a male optometrist in a clean clinic setting with medical equipment in soft focus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPF8KYzEjprdGuw63dFGB65LnQbnIMIXtrhrZ91G3lrQXPB-SZH7py5LnCbdw7r_4uX3J-6ih0JAuKmbxjefZcmFEuusk7DGe3DAKYReGfC3t3M0hoSka8xVfrOxoX_JMwZYuV8sMBzctcae3-GFL1PcqHLuI4KJHsGoAqQ4UHmU-jY4AM2L0UOmBQgLILvAbwlOmui6YgV0QYgZ3niWG-vJV6aVKMlXETNJ3ndEZSfLb7n03MhEvr4gMWkqs0eEz7K26HT3o4HGf9"/>
-</div>
-</div>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>OptiControl</title>
+
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Tus estilos -->
+<link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+<!-- HEADER -->
+<header class="fixed top-0 w-full bg-white shadow flex justify-between items-center px-6 py-3">
+  <h1 class="text-xl font-bold text-blue-900">OptiControl</h1>
 </header>
-<!-- Sidebar (Desktop NavigationDrawer logic) -->
-<aside class="hidden md:flex fixed left-0 top-0 h-full w-72 bg-white border-r border-slate-200 z-[60] flex-col p-6 pt-20">
-<div class="mb-8">
-<div class="flex items-center gap-4 mb-4">
-<div class="h-12 w-12 rounded-xl bg-primary-fixed-dim flex items-center justify-center">
-<span class="material-symbols-outlined text-primary" data-icon="medical_information">medical_information</span>
-</div>
-<div>
-<h2 class="font-manrope font-bold text-on-surface">Dr. Adrian Miller</h2>
-<p class="text-caption text-on-surface-variant">Clinical Director</p>
-</div>
-</div>
-<div class="bg-surface-container rounded-lg p-3">
-<p class="text-[10px] uppercase tracking-wider font-bold text-outline">Optic ID: 8829</p>
-</div>
-</div>
-<nav class="space-y-1 flex-1">
-<a class="flex items-center gap-3 px-4 py-3 bg-sky-50 text-sky-900 font-semibold rounded-xl transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-manrope">Dashboard</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-xl transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="group">group</span>
-<span class="font-manrope">Patients</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-xl transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
-<span class="font-manrope">Clinical</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-xl transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
-<span class="font-manrope">Agenda</span>
-</a>
-<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-xl transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
-<span class="font-manrope">Orders</span>
-</a>
-</nav>
-<div class="mt-auto pt-6 border-t border-slate-100 space-y-1">
-<a class="flex items-center gap-3 px-4 py-2 text-slate-500 hover:bg-slate-50 rounded-lg transition-all" href="#">
-<span class="material-symbols-outlined" data-icon="settings">settings</span>
-<span class="font-manrope text-label-sm">Settings</span>
-</a>
-</div>
-</aside>
-<!-- Main Content Canvas -->
-<main class="flex-1 md:ml-72 pt-20 pb-24 md:pb-10 px-6 lg:px-12 max-w-7xl mx-auto w-full">
-<!-- Welcome Section -->
-<section class="mb-gutter flex flex-col md:flex-row md:items-end justify-between gap-4">
-<div>
-<h1 class="font-h1 text-h1 text-on-surface">Practice Overview</h1>
-<p class="font-body-md text-on-surface-variant">Wednesday, October 25th — You have 12 appointments remaining today.</p>
-</div>
-<div class="flex gap-3">
-<button class="flex items-center gap-2 px-6 py-2.5 bg-primary text-white rounded-full font-manrope font-semibold hover:bg-primary-container transition-all scale-95 active:scale-90">
-<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
-                    New Patient
-                </button>
-<button class="flex items-center gap-2 px-6 py-2.5 bg-white border border-outline-variant text-primary rounded-full font-manrope font-semibold hover:bg-slate-50 transition-all">
-<span class="material-symbols-outlined text-sm" data-icon="event">event</span>
-                    Schedule
-                </button>
-</div>
-</section>
-<!-- Bento Grid Layout -->
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<!-- Today's Appointments -->
-<div class="md:col-span-8 bg-white rounded-xl border border-slate-200 overflow-hidden shadow-sm">
-<div class="px-6 py-4 border-b border-slate-100 flex justify-between items-center bg-slate-50/50">
-<h3 class="font-h3 text-h3 text-on-surface flex items-center gap-2">
-<span class="material-symbols-outlined text-primary" data-icon="today">today</span>
-                        Today's Appointments
-                    </h3>
-<button class="text-primary font-semibold text-label-sm hover:underline">View All</button>
-</div>
-<div class="divide-y divide-slate-100">
-<!-- Appointment Item -->
-<div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-<div class="w-12 text-center">
-<p class="font-manrope font-bold text-primary">09:00</p>
-<p class="text-caption text-on-surface-variant">AM</p>
-</div>
-<div class="flex-1">
-<h4 class="font-manrope font-bold text-on-surface">Eleanor Shellstrop</h4>
-<p class="text-caption text-on-surface-variant">Comprehensive Eye Exam • Follow-up</p>
-</div>
-<div class="flex gap-2">
-<span class="px-3 py-1 bg-sky-50 text-sky-900 text-caption font-bold rounded-full border border-sky-100">Room 02</span>
-<button class="p-2 text-slate-400 group-hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="arrow_forward_ios" style="font-size: 16px;">arrow_forward_ios</span>
-</button>
-</div>
-</div>
-<!-- Appointment Item -->
-<div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-<div class="w-12 text-center">
-<p class="font-manrope font-bold text-primary">10:30</p>
-<p class="text-caption text-on-surface-variant">AM</p>
-</div>
-<div class="flex-1">
-<h4 class="font-manrope font-bold text-on-surface">Chidi Anagonye</h4>
-<p class="text-caption text-on-surface-variant">Glaucoma Screening • Specialist</p>
-</div>
-<div class="flex gap-2">
-<span class="px-3 py-1 bg-amber-50 text-amber-700 text-caption font-bold rounded-full border border-amber-100">Checking In</span>
-<button class="p-2 text-slate-400 group-hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="arrow_forward_ios" style="font-size: 16px;">arrow_forward_ios</span>
-</button>
-</div>
-</div>
-<!-- Appointment Item -->
-<div class="px-6 py-4 flex items-center gap-4 hover:bg-slate-50 transition-colors group">
-<div class="w-12 text-center">
-<p class="font-manrope font-bold text-primary">11:15</p>
-<p class="text-caption text-on-surface-variant">AM</p>
-</div>
-<div class="flex-1">
-<h4 class="font-manrope font-bold text-on-surface">Tahani Al-Jamil</h4>
-<p class="text-caption text-on-surface-variant">Contact Lens Fitting • Luxury Frames</p>
-</div>
-<div class="flex gap-2">
-<span class="px-3 py-1 bg-slate-50 text-slate-500 text-caption font-bold rounded-full border border-slate-200">Scheduled</span>
-<button class="p-2 text-slate-400 group-hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="arrow_forward_ios" style="font-size: 16px;">arrow_forward_ios</span>
-</button>
-</div>
-</div>
-</div>
-</div>
-<!-- Stats Column -->
-<div class="md:col-span-4 flex flex-col gap-gutter">
-<!-- Pending Orders -->
-<div class="bg-primary text-white p-8 rounded-xl relative overflow-hidden shadow-lg shadow-primary/20">
-<div class="relative z-10">
-<div class="flex justify-between items-start mb-6">
-<span class="material-symbols-outlined text-4xl opacity-50" data-icon="shopping_cart">shopping_cart</span>
-<span class="px-2 py-1 bg-white/20 backdrop-blur-md rounded text-[10px] font-bold uppercase tracking-widest">Action Required</span>
-</div>
-<h4 class="font-manrope text-body-lg font-medium opacity-80">Pending Orders</h4>
-<div class="flex items-baseline gap-2">
-<span class="text-6xl font-extrabold font-manrope">18</span>
-<span class="text-body-md opacity-60">items</span>
-</div>
-<button class="mt-8 w-full py-3 bg-white text-primary font-bold rounded-lg hover:bg-sky-50 transition-colors text-label-sm">Review Orders</button>
-</div>
-<!-- Decorative element -->
-<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full blur-3xl"></div>
-</div>
-<!-- Quick Lens Stock -->
-<div class="bg-white border border-slate-200 p-6 rounded-xl">
-<h4 class="font-manrope font-bold text-on-surface mb-4 flex items-center gap-2">
-<span class="material-symbols-outlined text-primary text-xl" data-icon="inventory_2">inventory_2</span>
-                        Inventory Alerts
-                    </h4>
-<div class="space-y-4">
-<div class="flex justify-between items-center">
-<span class="text-label-sm text-on-surface-variant">Toric Contact Lenses</span>
-<span class="text-label-sm font-bold text-error">Low Stock (2)</span>
-</div>
-<div class="w-full bg-slate-100 h-1.5 rounded-full">
-<div class="bg-error w-[15%] h-full rounded-full"></div>
-</div>
-<div class="flex justify-between items-center">
-<span class="text-label-sm text-on-surface-variant">Blue-light Filters</span>
-<span class="text-label-sm font-bold text-on-secondary-fixed-variant">Healthy (42)</span>
-</div>
-<div class="w-full bg-slate-100 h-1.5 rounded-full">
-<div class="bg-secondary w-[85%] h-full rounded-full"></div>
-</div>
-</div>
-</div>
-</div>
-<!-- Wide Patient Interaction Section -->
-<div class="md:col-span-12 grid grid-cols-1 lg:grid-cols-3 gap-gutter">
-<div class="bg-surface-container-low border border-slate-200 p-6 rounded-xl flex items-center gap-6">
-<div class="h-16 w-16 rounded-full bg-white flex items-center justify-center text-primary shadow-sm border border-slate-100">
-<span class="material-symbols-outlined text-3xl" data-icon="biometrics">fingerprint</span>
-</div>
-<div>
-<h4 class="font-manrope font-bold text-on-surface">Patient Analytics</h4>
-<p class="text-caption text-on-surface-variant">+12% growth this month</p>
-</div>
-</div>
-<div class="bg-surface-container-low border border-slate-200 p-6 rounded-xl flex items-center gap-6">
-<div class="h-16 w-16 rounded-full bg-white flex items-center justify-center text-secondary shadow-sm border border-slate-100">
-<span class="material-symbols-outlined text-3xl" data-icon="clinical_notes">clinical_notes</span>
-</div>
-<div>
-<h4 class="font-manrope font-bold text-on-surface">Pending Reports</h4>
-<p class="text-caption text-on-surface-variant">5 clinical files to sign</p>
-</div>
-</div>
-<div class="bg-surface-container-low border border-slate-200 p-6 rounded-xl flex items-center gap-6">
-<div class="h-16 w-16 rounded-full bg-white flex items-center justify-center text-on-tertiary-fixed-variant shadow-sm border border-slate-100">
-<span class="material-symbols-outlined text-3xl" data-icon="receipt_long">receipt_long</span>
-</div>
-<div>
-<h4 class="font-manrope font-bold text-on-surface">Billing Sync</h4>
-<p class="text-caption text-on-surface-variant">All claims processed</p>
-</div>
-</div>
-</div>
-</div>
+
+<!-- CONTENIDO -->
+<main class="flex-1 pt-20 pb-24 px-6">
+
+  <h2 class="text-2xl font-bold mb-4">Panel Principal</h2>
+
+  <div class="grid gap-4">
+
+    <button onclick="irPacientes()" class="bg-green-600 text-white p-4 rounded-lg">
+      Pacientes
+    </button>
+
+    <button onclick="irAgenda()" class="bg-purple-600 text-white p-4 rounded-lg">
+      Agenda
+    </button>
+
+    <button onclick="irHistorias()" class="bg-blue-600 text-white p-4 rounded-lg">
+      Historias Clínicas
+    </button>
+
+    <button onclick="irOrdenes()" class="bg-orange-600 text-white p-4 rounded-lg">
+      Órdenes
+    </button>
+
+  </div>
+
 </main>
-<!-- BottomNavBar (Mobile Only) -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 bg-white border-t border-slate-200 pb-safe shadow-sm">
-<div class="flex justify-around items-center h-16 w-full px-2">
-<a class="flex flex-col items-center justify-center bg-sky-50 text-sky-900 rounded-2xl px-3 py-1.5 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-manrope text-[11px] font-medium">Dashboard</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5 hover:bg-slate-50" href="#">
-<span class="material-symbols-outlined" data-icon="group">group</span>
-<span class="font-manrope text-[11px] font-medium">Patients</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5 hover:bg-slate-50" href="#">
-<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
-<span class="font-manrope text-[11px] font-medium">Clinical</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5 hover:bg-slate-50" href="#">
-<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
-<span class="font-manrope text-[11px] font-medium">Agenda</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5 hover:bg-slate-50" href="#">
-<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
-<span class="font-manrope text-[11px] font-medium">Orders</span>
-</a>
-</div>
-</nav>
-<!-- Floating Action Button (Only relevant for core dashboard mobile views) -->
-<button class="md:hidden fixed right-6 bottom-20 w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center active:scale-90 transition-transform">
-<span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
-</button>
-</body></html>
+
+<!-- FOOTER -->
+<footer class="footer"></footer>
+
+<!-- SCRIPTS -->
+<script src="api-config.js"></script>
+<script src="app.js"></script>
+
+<script>
+// FUNCIONES DE NAVEGACIÓN
+function irPacientes() {
+  window.location.href = "pacientes.html";
+}
+
+function irAgenda() {
+  window.location.href = "agenda.html";
+}
+
+function irHistorias() {
+  window.location.href = "historias.html";
+}
+
+function irOrdenes() {
+  window.location.href = "ordenes.html";
+}
+</script>
+
+</body>
+</html>
