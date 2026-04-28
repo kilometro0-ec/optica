@@ -17,8 +17,7 @@
                     colors: {
                         primary: "#1A8D8C",
                         secondary: "#6C247B",
-                        background: "#f8f9ff",
-                        surface: "#ffffff"
+                        background: "#f8f9ff"
                     }
                 }
             }
@@ -26,7 +25,7 @@
     </script>
 </head>
 
-<body class="bg-background text-[#0b1c30] min-h-screen pb-32">
+<body class="bg-background text-[#0b1c30] min-h-screen pb-40">
 
 <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white border-b border-slate-100 shadow-sm">
     <div class="flex items-center gap-3">
@@ -47,110 +46,76 @@
             <span class="h-0.5 w-6 bg-primary rounded-full"></span>
             <p class="text-[10px] font-black text-secondary uppercase tracking-[0.3em]">Consulta Médica</p>
         </div>
-        <h2 class="text-3xl font-extrabold font-manrope tracking-tight">Mateo Richardson</h2>
-        <p class="text-slate-500 text-sm">C.I.: 172XXXXXXX | Última visita: 12 Oct 2025</p>
+        <h2 id="nombre-paciente" class="text-3xl font-extrabold font-manrope tracking-tight text-slate-800">Cargando paciente...</h2>
+        <p id="info-paciente" class="text-slate-500 text-sm">Registro de examen visual</p>
     </section>
 
     <form id="formHistoria" class="space-y-6">
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            
-            <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="material-symbols-outlined text-primary">visibility</span>
-                    <h3 class="font-bold text-primary uppercase text-xs tracking-widest">Ojo Derecho (OD)</h3>
-                </div>
+            <div class="bg-white p-6 rounded-[2.5rem] border border-slate-50 shadow-sm">
+                <h3 class="font-bold text-primary uppercase text-[10px] tracking-widest mb-4 flex items-center gap-2">
+                    <span class="h-2 w-2 bg-primary rounded-full"></span> Ojo Derecho (OD)
+                </h3>
                 <div class="grid grid-cols-3 gap-3">
-                    <div>
-                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">SPH</label>
-                        <input id="od_sph" type="text" placeholder="-0.00" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-primary/20"/>
-                    </div>
-                    <div>
-                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">CYL</label>
-                        <input id="od_cyl" type="text" placeholder="-0.00" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-primary/20"/>
-                    </div>
-                    <div>
-                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">AXIS</label>
-                        <input id="od_axis" type="text" placeholder="0°" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-primary/20"/>
-                    </div>
+                    <input id="od_sph" placeholder="SPH" class="w-full bg-slate-50 border-none rounded-2xl p-4 text-center font-bold text-slate-700 focus:ring-2 focus:ring-primary/20">
+                    <input id="od_cyl" placeholder="CYL" class="w-full bg-slate-50 border-none rounded-2xl p-4 text-center font-bold text-slate-700 focus:ring-2 focus:ring-primary/20">
+                    <input id="od_axis" placeholder="AXIS" class="w-full bg-slate-50 border-none rounded-2xl p-4 text-center font-bold text-slate-700 focus:ring-2 focus:ring-primary/20">
                 </div>
             </div>
 
-            <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
-                <div class="flex items-center gap-2 mb-4">
-                    <span class="material-symbols-outlined text-secondary">visibility</span>
-                    <h3 class="font-bold text-secondary uppercase text-xs tracking-widest">Ojo Izquierdo (OI)</h3>
-                </div>
+            <div class="bg-white p-6 rounded-[2.5rem] border border-slate-50 shadow-sm">
+                <h3 class="font-bold text-secondary uppercase text-[10px] tracking-widest mb-4 flex items-center gap-2">
+                    <span class="h-2 w-2 bg-secondary rounded-full"></span> Ojo Izquierdo (OI)
+                </h3>
                 <div class="grid grid-cols-3 gap-3">
-                    <div>
-                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">SPH</label>
-                        <input id="oi_sph" type="text" placeholder="-0.00" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-secondary/20"/>
-                    </div>
-                    <div>
-                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">CYL</label>
-                        <input id="oi_cyl" type="text" placeholder="-0.00" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-secondary/20"/>
-                    </div>
-                    <div>
-                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">AXIS</label>
-                        <input id="oi_axis" type="text" placeholder="0°" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-secondary/20"/>
-                    </div>
+                    <input id="oi_sph" placeholder="SPH" class="w-full bg-slate-50 border-none rounded-2xl p-4 text-center font-bold text-slate-700 focus:ring-2 focus:ring-secondary/20">
+                    <input id="oi_cyl" placeholder="CYL" class="w-full bg-slate-50 border-none rounded-2xl p-4 text-center font-bold text-slate-700 focus:ring-2 focus:ring-secondary/20">
+                    <input id="oi_axis" placeholder="AXIS" class="w-full bg-slate-50 border-none rounded-2xl p-4 text-center font-bold text-slate-700 focus:ring-2 focus:ring-secondary/20">
                 </div>
             </div>
         </div>
 
-        <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
-            <h3 class="font-bold mb-3 text-primary uppercase text-xs tracking-widest">Diagnóstico Clínico</h3>
-            <textarea id="diagnostico" rows="3" placeholder="Ej: Miopía con Astigmatismo..." class="w-full bg-slate-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-primary/20"></textarea>
+        <div class="bg-white p-6 rounded-[2.5rem] border border-slate-50 shadow-sm">
+            <h3 class="font-bold mb-3 text-slate-400 uppercase text-[10px] tracking-widest">Diagnóstico y Receta</h3>
+            <textarea id="diagnostico" rows="2" placeholder="Diagnóstico..." class="w-full bg-slate-50 border-none rounded-2xl p-4 mb-4 text-sm focus:ring-2 focus:ring-primary/10"></textarea>
+            <textarea id="receta" rows="2" placeholder="Indicaciones de la receta..." class="w-full bg-slate-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-secondary/10"></textarea>
         </div>
 
-        <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
-            <h3 class="font-bold mb-3 text-secondary uppercase text-xs tracking-widest">Recomendaciones / Receta</h3>
-            <textarea id="receta" rows="3" placeholder="Ej: Lentes con filtro Blue Defense y AR..." class="w-full bg-slate-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-secondary/20"></textarea>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <button type="submit" class="bg-primary text-white font-bold py-4 rounded-2xl shadow-lg shadow-teal-100 flex items-center justify-center gap-2 active:scale-95 transition-all">
-                <span class="material-symbols-outlined">save</span> GUARDAR HISTORIA
+        <div class="flex flex-col gap-3">
+            <button type="submit" class="w-full py-5 bg-primary text-white rounded-[1.5rem] font-bold text-sm uppercase tracking-widest shadow-lg shadow-teal-100 flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">save</span> Guardar Historia
             </button>
-            <button type="button" id="btnWhatsApp" class="bg-green-500 text-white font-bold py-4 rounded-2xl shadow-lg shadow-green-100 flex items-center justify-center gap-2 active:scale-95 transition-all">
-                <span class="material-symbols-outlined">chat</span> ENVIAR POR WA
-            </button>
-            <button type="button" id="btnCancelar" class="bg-white text-slate-400 font-bold py-4 rounded-2xl border border-slate-100 hover:bg-slate-50 transition-all">
-                CANCELAR
+            <button type="button" id="btnWhatsApp" class="w-full py-4 bg-emerald-500 text-white rounded-[1.5rem] font-bold text-sm uppercase tracking-widest flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined text-lg">chat_bubble</span> Enviar WA
             </button>
         </div>
-
     </form>
 </main>
 
 <script>
-    const version = "0.0.6";
-    document.querySelector(".footer").innerHTML = `by CORPORACIÓN 360 | V.${version}`;
-
-    // GUARDAR EN LOCALSTORAGE
-    document.getElementById("formHistoria").addEventListener("submit", function(e){
-        e.preventDefault();
-        const data = {
-            od: { sph: od_sph.value, cyl: od_cyl.value, axis: od_axis.value },
-            oi: { sph: oi_sph.value, cyl: oi_cyl.value, axis: oi_axis.value },
-            diagnostico: diagnostico.value,
-            receta: receta.value,
-            fecha: new Date().toLocaleDateString()
-        };
-        localStorage.setItem("ultima_historia", JSON.stringify(data));
-        alert("✅ Historia Guardada con éxito");
+    // Cargar datos del paciente actual si existen
+    document.addEventListener('DOMContentLoaded', () => {
+        const paciente = JSON.parse(localStorage.getItem('paciente_actual'));
+        if(paciente) {
+            document.getElementById('nombre-paciente').innerText = paciente.nombre;
+            document.getElementById('info-paciente').innerText = `C.I: ${paciente.cedula} | Tel: ${paciente.telefono}`;
+        }
     });
 
-    // BOTÓN CANCELAR
-    document.getElementById("btnCancelar").onclick = () => {
-        if(confirm("¿Seguro que deseas limpiar los campos?")) formHistoria.reset();
+    document.getElementById("formHistoria").onsubmit = (e) => {
+        e.preventDefault();
+        alert("✅ Historia clínica guardada correctamente.");
     };
 
-    // WHATSAPP DINÁMICO
     document.getElementById("btnWhatsApp").onclick = () => {
-        const msg = `Hola Mateo, tu diagnóstico en ÓPTICA'S GM está listo.\nOD: ${od_sph.value} ${od_cyl.value}\nOI: ${oi_sph.value} ${oi_cyl.value}\nReceta: ${receta.value}`;
+        const nombre = document.getElementById('nombre-paciente').innerText;
+        const msg = `Hola ${nombre}, tu examen visual en ÓPTICA'S GM ha sido registrado.`;
         window.open(`https://wa.me/593XXXXXXXXX?text=${encodeURIComponent(msg)}`);
     };
 </script>
 
-<script src="nav-component.js"></script
+<script src="nav-component.js"></script>
+
+</body>
+</html>
