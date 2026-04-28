@@ -1,192 +1,156 @@
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html lang="es">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Historia Clínica | ÓPTICA'S GM</title>
 
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1" rel="stylesheet"/>
+    <link rel="stylesheet" href="estilos.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-
-<script>
-tailwind.config = {
-  theme: {
-    extend: {
-      colors: {
-        primary: "#00355f",
-        secondary: "#1460a6",
-        background: "#f8f9ff",
-        surface: "#ffffff",
-        text: "#0b1c30"
-      }
-    }
-  }
-}
-</script>
-
-<style>
-body { font-family: 'Inter', sans-serif; }
-</style>
-
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1A8D8C",
+                        secondary: "#6C247B",
+                        background: "#f8f9ff",
+                        surface: "#ffffff"
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body class="bg-background text-text min-h-screen pb-32">
+<body class="bg-background text-[#0b1c30] min-h-screen pb-32">
 
-<!-- HEADER -->
-<header class="fixed top-0 w-full z-50 border-b bg-white flex justify-between items-center px-6 py-3">
-
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-primary">visibility</span>
-<h1 class="text-xl font-extrabold text-primary">OptiControl</h1>
-</div>
-
-<div class="hidden md:flex gap-6">
-<a href="inicio.html" class="text-primary font-bold">Dashboard</a>
-<a href="pacientes.html" class="text-gray-500 hover:text-primary">Patients</a>
-<a href="agenda.html" class="text-gray-500 hover:text-primary">Agenda</a>
-</div>
-
+<header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white border-b border-slate-100 shadow-sm">
+    <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-3xl">visibility</span>
+        <h1 class="font-manrope font-extrabold text-xl tracking-tighter uppercase bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            ÓPTICA'S GM
+        </h1>
+    </div>
+    <div class="h-9 w-9 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20">
+        <span class="material-symbols-outlined text-primary text-sm">person</span>
+    </div>
 </header>
 
-<!-- CONTENIDO -->
-<main class="pt-24 px-6 max-w-7xl mx-auto">
+<main class="pt-24 px-6 max-w-4xl mx-auto">
 
-<!-- HEADER PACIENTE -->
-<section class="mb-6">
-<h2 class="text-2xl font-bold text-primary">Historia Clínica</h2>
-<p class="text-gray-500">Paciente: Mateo Richardson</p>
-</section>
+    <section class="mb-8">
+        <div class="flex items-center gap-2 mb-1">
+            <span class="h-0.5 w-6 bg-primary rounded-full"></span>
+            <p class="text-[10px] font-black text-secondary uppercase tracking-[0.3em]">Consulta Médica</p>
+        </div>
+        <h2 class="text-3xl font-extrabold font-manrope tracking-tight">Mateo Richardson</h2>
+        <p class="text-slate-500 text-sm">C.I.: 172XXXXXXX | Última visita: 12 Oct 2025</p>
+    </section>
 
-<form id="formHistoria" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <form id="formHistoria" class="space-y-6">
 
-<!-- OJO DERECHO -->
-<div class="bg-white p-4 rounded-xl border">
-<h3 class="font-bold mb-2 text-primary">Ojo Derecho (OD)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            
+            <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-symbols-outlined text-primary">visibility</span>
+                    <h3 class="font-bold text-primary uppercase text-xs tracking-widest">Ojo Derecho (OD)</h3>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <div>
+                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">SPH</label>
+                        <input id="od_sph" type="text" placeholder="-0.00" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-primary/20"/>
+                    </div>
+                    <div>
+                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">CYL</label>
+                        <input id="od_cyl" type="text" placeholder="-0.00" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-primary/20"/>
+                    </div>
+                    <div>
+                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">AXIS</label>
+                        <input id="od_axis" type="text" placeholder="0°" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-primary/20"/>
+                    </div>
+                </div>
+            </div>
 
-<input id="od_sph" placeholder="SPH" class="w-full border p-2 mb-2 rounded"/>
-<input id="od_cyl" placeholder="CYL" class="w-full border p-2 mb-2 rounded"/>
-<input id="od_axis" placeholder="AXIS" class="w-full border p-2 rounded"/>
+            <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-symbols-outlined text-secondary">visibility</span>
+                    <h3 class="font-bold text-secondary uppercase text-xs tracking-widest">Ojo Izquierdo (OI)</h3>
+                </div>
+                <div class="grid grid-cols-3 gap-3">
+                    <div>
+                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">SPH</label>
+                        <input id="oi_sph" type="text" placeholder="-0.00" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-secondary/20"/>
+                    </div>
+                    <div>
+                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">CYL</label>
+                        <input id="oi_cyl" type="text" placeholder="-0.00" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-secondary/20"/>
+                    </div>
+                    <div>
+                        <label class="text-[9px] font-bold text-slate-400 uppercase ml-1">AXIS</label>
+                        <input id="oi_axis" type="text" placeholder="0°" class="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-secondary/20"/>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-</div>
+        <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
+            <h3 class="font-bold mb-3 text-primary uppercase text-xs tracking-widest">Diagnóstico Clínico</h3>
+            <textarea id="diagnostico" rows="3" placeholder="Ej: Miopía con Astigmatismo..." class="w-full bg-slate-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-primary/20"></textarea>
+        </div>
 
-<!-- OJO IZQUIERDO -->
-<div class="bg-white p-4 rounded-xl border">
-<h3 class="font-bold mb-2 text-primary">Ojo Izquierdo (OI)</h3>
+        <div class="bg-white p-6 rounded-[2rem] border border-slate-100 shadow-sm">
+            <h3 class="font-bold mb-3 text-secondary uppercase text-xs tracking-widest">Recomendaciones / Receta</h3>
+            <textarea id="receta" rows="3" placeholder="Ej: Lentes con filtro Blue Defense y AR..." class="w-full bg-slate-50 border-none rounded-2xl p-4 text-sm focus:ring-2 focus:ring-secondary/20"></textarea>
+        </div>
 
-<input id="oi_sph" placeholder="SPH" class="w-full border p-2 mb-2 rounded"/>
-<input id="oi_cyl" placeholder="CYL" class="w-full border p-2 mb-2 rounded"/>
-<input id="oi_axis" placeholder="AXIS" class="w-full border p-2 rounded"/>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <button type="submit" class="bg-primary text-white font-bold py-4 rounded-2xl shadow-lg shadow-teal-100 flex items-center justify-center gap-2 active:scale-95 transition-all">
+                <span class="material-symbols-outlined">save</span> GUARDAR HISTORIA
+            </button>
+            <button type="button" id="btnWhatsApp" class="bg-green-500 text-white font-bold py-4 rounded-2xl shadow-lg shadow-green-100 flex items-center justify-center gap-2 active:scale-95 transition-all">
+                <span class="material-symbols-outlined">chat</span> ENVIAR POR WA
+            </button>
+            <button type="button" id="btnCancelar" class="bg-white text-slate-400 font-bold py-4 rounded-2xl border border-slate-100 hover:bg-slate-50 transition-all">
+                CANCELAR
+            </button>
+        </div>
 
-</div>
-
-<!-- DIAGNOSTICO -->
-<div class="lg:col-span-2 bg-white p-4 rounded-xl border">
-<h3 class="font-bold mb-2 text-primary">Diagnóstico</h3>
-<textarea id="diagnostico" class="w-full border p-2 rounded"></textarea>
-</div>
-
-<!-- RECETA -->
-<div class="lg:col-span-2 bg-white p-4 rounded-xl border">
-<h3 class="font-bold mb-2 text-primary">Receta</h3>
-<textarea id="receta" class="w-full border p-2 rounded"></textarea>
-</div>
-
-<!-- BOTONES -->
-<div class="lg:col-span-2 flex gap-4">
-
-<button type="submit" class="bg-primary text-white px-6 py-2 rounded">
-Guardar
-</button>
-
-<button type="button" id="btnCancelar" class="border px-6 py-2 rounded">
-Cancelar
-</button>
-
-<button type="button" id="btnWhatsApp" class="bg-green-500 text-white px-6 py-2 rounded">
-WhatsApp
-</button>
-
-</div>
-
-</form>
-
+    </form>
 </main>
 
-<!-- NAV INFERIOR -->
-<nav class="fixed bottom-0 w-full bg-white border-t flex justify-around items-center h-16">
-
-<a href="inicio.html" class="flex flex-col items-center text-gray-500">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="text-xs">Dashboard</span>
-</a>
-
-<a href="pacientes.html" class="flex flex-col items-center text-gray-500">
-<span class="material-symbols-outlined">group</span>
-<span class="text-xs">Patients</span>
-</a>
-
-<a href="historia.html" class="flex flex-col items-center text-primary font-bold">
-<span class="material-symbols-outlined">medical_services</span>
-<span class="text-xs">Clinical</span>
-</a>
-
-<a href="agenda.html" class="flex flex-col items-center text-gray-500">
-<span class="material-symbols-outlined">calendar_month</span>
-<span class="text-xs">Agenda</span>
-</a>
-
-<a href="ordenes.html" class="flex flex-col items-center text-gray-500">
-<span class="material-symbols-outlined">shopping_cart</span>
-<span class="text-xs">Orders</span>
-</a>
-
-</nav>
-
-<!-- FOOTER -->
-<footer class="footer text-center py-4 text-gray-500"></footer>
-
-<!-- SCRIPT -->
 <script>
+    const version = "0.0.6";
+    document.querySelector(".footer").innerHTML = `by CORPORACIÓN 360 | V.${version}`;
 
-// VERSION
-const version = "0.0.5";
-document.querySelector(".footer").innerHTML =
-  `by CORPORACIÓN 360 | V.${version}`;
+    // GUARDAR EN LOCALSTORAGE
+    document.getElementById("formHistoria").addEventListener("submit", function(e){
+        e.preventDefault();
+        const data = {
+            od: { sph: od_sph.value, cyl: od_cyl.value, axis: od_axis.value },
+            oi: { sph: oi_sph.value, cyl: oi_cyl.value, axis: oi_axis.value },
+            diagnostico: diagnostico.value,
+            receta: receta.value,
+            fecha: new Date().toLocaleDateString()
+        };
+        localStorage.setItem("ultima_historia", JSON.stringify(data));
+        alert("✅ Historia Guardada con éxito");
+    });
 
-// GUARDAR
-document.getElementById("formHistoria").addEventListener("submit", function(e){
-    e.preventDefault();
-
-    const data = {
-        od: {
-            sph: od_sph.value,
-            cyl: od_cyl.value,
-            axis: od_axis.value
-        },
-        oi: {
-            sph: oi_sph.value,
-            cyl: oi_cyl.value,
-            axis: oi_axis.value
-        },
-        diagnostico: diagnostico.value,
-        receta: receta.value
+    // BOTÓN CANCELAR
+    document.getElementById("btnCancelar").onclick = () => {
+        if(confirm("¿Seguro que deseas limpiar los campos?")) formHistoria.reset();
     };
 
-    localStorage.setItem("historiaClinica", JSON.stringify(data));
-    alert("Guardado correctamente");
-});
-
-// CANCELAR
-btnCancelar.onclick = () => formHistoria.reset();
-
-// WHATSAPP
-btnWhatsApp.onclick = () => {
-    const mensaje = "Su diagnóstico está listo en OptiControl";
-    window.open(`https://wa.me/593XXXXXXXXX?text=${encodeURIComponent(mensaje)}`);
-};
-
+    // WHATSAPP DINÁMICO
+    document.getElementById("btnWhatsApp").onclick = () => {
+        const msg = `Hola Mateo, tu diagnóstico en ÓPTICA'S GM está listo.\nOD: ${od_sph.value} ${od_cyl.value}\nOI: ${oi_sph.value} ${oi_cyl.value}\nReceta: ${receta.value}`;
+        window.open(`https://wa.me/593XXXXXXXXX?text=${encodeURIComponent(msg)}`);
+    };
 </script>
 
-</body>
-</html>
+<script src="nav-component.js"></script
