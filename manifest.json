@@ -1,7 +1,7 @@
 {
   "name": "OptiControl",
   "short_name": "OptiCtrl",
-  "start_url": "/menu.html",
+  "start_url": "menu.html",
   "display": "standalone",
   "background_color": "#2E8B7D",
   "theme_color": "#6A1B9A",
