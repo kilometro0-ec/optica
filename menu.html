@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Panel Principal | Sistema de Gestión</title>
+    <title>Panel Principal | VisionCare</title>
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -28,7 +28,7 @@
 <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white border-b border-slate-100 shadow-sm">
     <div class="flex items-center gap-3">
         <span class="material-symbols-outlined text-primary text-3xl">visibility</span>
-        <h1 id="app-name" class="font-manrope font-extrabold text-xl text-primary tracking-tight uppercase">CARGANDO...</h1>
+        <h1 id="app-name" class="font-manrope font-extrabold text-xl text-primary tracking-tight uppercase">VisionCare</h1>
     </div>
     <div class="h-10 w-10 rounded-full bg-slate-100 flex items-center justify-center border border-primary/20">
         <span class="material-symbols-outlined text-primary font-light">person</span>
@@ -37,61 +37,68 @@
 
 <main class="pt-24 pb-32 px-6 max-w-5xl mx-auto min-h-screen">
     <div class="mb-8">
-        <h2 class="text-3xl font-bold text-[#0b1c30] mb-1">Panel Principal</h2>
+        <p class="text-[10px] font-black text-secondary uppercase tracking-[0.2em] mb-1">Bienvenido de nuevo</p>
+        <h2 class="text-3xl font-extrabold text-[#0b1c30] font-manrope">Panel Principal</h2>
         <p class="text-slate-500 text-sm">Gestión integral de sucursal profesional.</p>
     </div>
 
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
         
-        <a href="pacientes.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group relative">
-            <div id="badge-pacientes" class="absolute top-4 right-4 bg-primary text-white text-[10px] font-bold h-6 w-6 rounded-full flex items-center justify-center shadow-md hidden">0</div>
-            <div class="h-14 w-14 rounded-full bg-teal-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+        <a href="pacientes.html" class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-4 hover:border-primary transition-all active:scale-95 group relative">
+            <div id="badge-pacientes" class="absolute top-6 right-6 bg-primary text-white text-[10px] font-bold h-6 w-6 rounded-full flex items-center justify-center shadow-md hidden">0</div>
+            <div class="h-16 w-16 rounded-3xl bg-teal-50 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all transform group-hover:rotate-6">
                 <span class="material-symbols-outlined text-3xl">group</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm text-center">Pacientes</span>
+            <span class="font-black text-slate-700 text-xs uppercase tracking-widest text-center">Pacientes</span>
         </a>
 
-        <a href="historias.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group">
-            <div class="h-14 w-14 rounded-full bg-purple-50 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+        <a href="historias.html" class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-4 hover:border-primary transition-all active:scale-95 group">
+            <div class="h-16 w-16 rounded-3xl bg-purple-50 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all transform group-hover:rotate-6">
                 <span class="material-symbols-outlined text-3xl">medical_information</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm text-center">Historias</span>
+            <span class="font-black text-slate-700 text-xs uppercase tracking-widest text-center">Historias</span>
         </a>
 
-        <a href="ordenes.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group relative">
-            <div id="badge-ordenes" class="absolute top-4 right-4 bg-orange-500 text-white text-[10px] font-bold h-6 w-6 rounded-full flex items-center justify-center shadow-md hidden">0</div>
-            <div class="h-14 w-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                <span class="material-symbols-outlined text-3xl">biometrics</span>
+        <a href="ordenes.html" class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-4 hover:border-primary transition-all active:scale-95 group relative">
+            <div id="badge-ordenes" class="absolute top-6 right-6 bg-orange-500 text-white text-[10px] font-bold h-6 w-6 rounded-full flex items-center justify-center shadow-md hidden">0</div>
+            <div class="h-16 w-16 rounded-3xl bg-blue-50 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all transform group-hover:rotate-6">
+                <span class="material-symbols-outlined text-3xl">precision_manufacturing</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm text-center">Laboratorio</span>
+            <span class="font-black text-slate-700 text-xs uppercase tracking-widest text-center">Laboratorio</span>
         </a>
 
-        <a href="agenda.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group relative">
-            <div id="badge-agenda" class="absolute top-4 right-4 bg-secondary text-white text-[10px] font-bold h-6 w-6 rounded-full flex items-center justify-center shadow-md hidden">0</div>
-            <div class="h-14 w-14 rounded-full bg-orange-50 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+        <a href="agenda.html" class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-4 hover:border-primary transition-all active:scale-95 group relative">
+            <div id="badge-agenda" class="absolute top-6 right-6 bg-secondary text-white text-[10px] font-bold h-6 w-6 rounded-full flex items-center justify-center shadow-md hidden">0</div>
+            <div class="h-16 w-16 rounded-3xl bg-orange-50 flex items-center justify-center text-orange-500 group-hover:bg-orange-500 group-hover:text-white transition-all transform group-hover:rotate-6">
                 <span class="material-symbols-outlined text-3xl">calendar_today</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm text-center">Agenda</span>
+            <span class="font-black text-slate-700 text-xs uppercase tracking-widest text-center">Agenda</span>
         </a>
 
-        <a href="inicio.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group">
-            <div class="h-14 w-14 rounded-full bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+        <a href="inicio.html" class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-4 hover:border-primary transition-all active:scale-95 group">
+            <div class="h-16 w-16 rounded-3xl bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-all transform group-hover:rotate-6">
                 <span class="material-symbols-outlined text-3xl">account_balance_wallet</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm text-center">Gestión</span>
+            <span class="font-black text-slate-700 text-xs uppercase tracking-widest text-center">Finanzas</span>
         </a>
 
-        <a href="inventario.html" class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-3 hover:border-primary transition-all active:scale-95 group relative">
-            <div id="badge-stock" class="absolute top-4 right-4 bg-red-500 text-white text-[10px] font-bold h-6 w-6 rounded-full flex items-center justify-center shadow-md hidden">!</div>
-            <div class="h-14 w-14 rounded-full bg-slate-50 flex items-center justify-center text-slate-500 group-hover:bg-slate-700 group-hover:text-white transition-colors">
+        <a href="inventario.html" class="bg-white p-8 rounded-[2.5rem] border border-slate-100 shadow-sm flex flex-col items-center justify-center gap-4 hover:border-primary transition-all active:scale-95 group relative">
+            <div id="badge-stock" class="absolute top-6 right-6 bg-red-500 text-white text-[10px] font-bold h-6 w-6 rounded-full flex items-center justify-center shadow-md">!</div>
+            <div class="h-16 w-16 rounded-3xl bg-slate-50 flex items-center justify-center text-slate-500 group-hover:bg-slate-700 group-hover:text-white transition-all transform group-hover:rotate-6">
                 <span class="material-symbols-outlined text-3xl">inventory_2</span>
             </div>
-            <span class="font-bold text-slate-700 text-sm text-center">Inventario</span>
+            <span class="font-black text-slate-700 text-xs uppercase tracking-widest text-center">Inventario</span>
         </a>
     </div>
 
-    <footer class="footer mt-12 text-center text-xs text-slate-400"></footer>
+    <footer class="footer mt-12 text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+        VisionCare © 2026 - Gestión Óptica Profesional
+    </footer>
 </main>
 
-<script src="api-config.js"></script>    <script src="app.js"></script>           <script src="nav-component.js"></script> </body>
+<script src="api-config.js"></script>
+<script src="app.js"></script>
+<script src="nav-component.js"></script>
+
+</body>
 </html>
