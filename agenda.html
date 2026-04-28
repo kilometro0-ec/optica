@@ -1,346 +1,137 @@
 <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Agenda de Citas | Sistema Óptico</title>
+    
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>VisionCare - Appointment Agenda</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+    <script id="tailwind-config">
         tailwind.config = {
-            darkMode: "class",
             theme: {
                 extend: {
-                    "colors": {
-                        "surface": "#f8f9ff",
-                        "on-secondary-fixed-variant": "#004882",
-                        "on-tertiary-fixed-variant": "#444749",
-                        "inverse-surface": "#213145",
-                        "secondary-container": "#78b3ff",
-                        "primary": "#00355f",
-                        "surface-dim": "#cbdbf5",
-                        "inverse-primary": "#a0c9ff",
-                        "outline-variant": "#c2c7d1",
-                        "on-tertiary": "#ffffff",
-                        "on-primary": "#ffffff",
-                        "tertiary-fixed-dim": "#c4c7c9",
-                        "on-surface": "#0b1c30",
-                        "on-secondary": "#ffffff",
-                        "on-background": "#0b1c30",
-                        "surface-container-high": "#dce9ff",
-                        "on-secondary-fixed": "#001c38",
-                        "surface-container-lowest": "#ffffff",
-                        "on-surface-variant": "#42474f",
-                        "secondary-fixed": "#d3e3ff",
-                        "surface-bright": "#f8f9ff",
-                        "primary-container": "#0f4c81",
-                        "tertiary": "#313436",
-                        "on-error": "#ffffff",
-                        "outline": "#727780",
-                        "surface-container-highest": "#d3e4fe",
-                        "on-tertiary-container": "#b8bbbc",
-                        "surface-container": "#e5eeff",
-                        "error": "#ba1a1a",
-                        "tertiary-container": "#474b4d",
-                        "inverse-on-surface": "#eaf1ff",
-                        "primary-fixed": "#d2e4ff",
-                        "secondary": "#1460a6",
-                        "primary-fixed-dim": "#a0c9ff",
-                        "tertiary-fixed": "#e0e3e5",
-                        "on-secondary-container": "#00457c",
-                        "on-error-container": "#93000a",
-                        "background": "#f8f9ff",
-                        "surface-tint": "#2d6197",
-                        "on-primary-fixed": "#001c37",
-                        "surface-variant": "#d3e4fe",
-                        "secondary-fixed-dim": "#a3c9ff",
-                        "on-primary-container": "#8ebdf9",
-                        "error-container": "#ffdad6",
-                        "on-tertiary-fixed": "#191c1e",
-                        "on-primary-fixed-variant": "#07497d",
-                        "surface-container-low": "#eff4ff"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.125rem",
-                        "lg": "0.25rem",
-                        "xl": "0.5rem",
-                        "full": "0.75rem"
-                    },
-                    "spacing": {
-                        "md": "24px",
-                        "gutter": "24px",
-                        "lg": "48px",
-                        "base": "4px",
-                        "margin": "32px",
-                        "sm": "16px",
-                        "xs": "8px",
-                        "xl": "80px"
-                    },
-                    "fontFamily": {
-                        "h3": ["Manrope"],
-                        "body-md": ["Inter"],
-                        "label-sm": ["Inter"],
-                        "h2": ["Manrope"],
-                        "h1": ["Manrope"],
-                        "body-lg": ["Inter"],
-                        "caption": ["Inter"]
-                    },
-                    "fontSize": {
-                        "h3": ["24px", {"lineHeight": "32px", "letterSpacing": "0", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
-                        "h2": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                        "h1": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    colors: {
+                        "primary": "#1A8D8C", // Turquesa Óptica
+                        "secondary": "#6C247B", // Violeta Good Look
+                        "surface": "#f8f9ff"
                     }
                 }
             }
         }
     </script>
-<style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
+    <style>
         .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
-        .shadow-ambient { box-shadow: 0 4px 20px -2px rgba(15, 76, 129, 0.08); }
+        .shadow-ambient { box-shadow: 0 4px 20px -2px rgba(26, 141, 140, 0.1); }
     </style>
-<style>
-    body {
-      min-height: max(884px, 100dvh);
-    }
-  </style>
-  </head>
-<body class="bg-surface font-body-md text-on-surface">
-<!-- TopAppBar from JSON -->
-<header class="fixed top-0 w-full z-50 border-b border-slate-100 bg-white px-6 py-3 flex justify-between items-center h-16">
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-sky-900" data-icon="visibility">visibility</span>
-<h1 class="text-xl font-extrabold text-sky-900 font-manrope tracking-tight">VisionCare</h1>
-</div>
-<div class="flex items-center gap-4">
-<nav class="hidden md:flex gap-8 mr-8">
-<a class="text-slate-500 hover:text-sky-900 transition-colors font-manrope font-semibold tracking-tight" href="#">Dashboard</a>
-<a class="text-slate-500 hover:text-sky-900 transition-colors font-manrope font-semibold tracking-tight" href="#">Patients</a>
-<a class="text-sky-900 font-bold font-manrope tracking-tight" href="#">Agenda</a>
-</nav>
-<div class="w-10 h-10 rounded-full overflow-hidden border border-slate-200">
-<img alt="Practitioner Profile" class="w-full h-full object-cover" data-alt="professional portrait of a male doctor in a clean medical clinic environment, soft lighting, professional headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAF2m0JNWDA4Ia-l3TVJYW2r74X9kKewsdYNzwWsHzEp02L4g45jO-nKV3Zv0KbQyFrVOr9TekbO6N77ippYWc6FClLzLxVzgkU32VB8E0OLOCheeqwBEfo8zlPsLY0srkBd2Khtd9xdxICJrE7qfXxLKgshzadNDBCTZ1eC7NhFtska-YN46ovMORhV4ZR-KrcIQ7pI3ndbd-7b2ObwO0GK2PXmH6KrL9HUmj7I7rzjcHAuBxnBL0_UhIeKrfCsRP8m5s4WhmkYpie"/>
-</div>
-</div>
+</head>
+
+<body class="bg-surface font-['Inter'] text-slate-800">
+
+<header class="fixed top-0 w-full z-50 border-b border-slate-100 bg-white px-6 py-3 flex justify-between items-center h-16 shadow-sm">
+    <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary text-3xl">visibility</span>
+        <h1 id="app-name" class="text-xl font-black text-primary font-manrope tracking-tight uppercase">CARGANDO...</h1>
+    </div>
+    <div class="flex items-center gap-4">
+        <div class="w-9 h-9 rounded-full bg-slate-100 border border-primary/10 flex items-center justify-center overflow-hidden">
+            <span class="material-symbols-outlined text-primary">person</span>
+        </div>
+    </div>
 </header>
-<main class="pt-16 pb-24 px-gutter md:px-xl max-w-7xl mx-auto">
-<!-- Header Section -->
-<section class="mt-margin mb-gutter flex justify-between items-end">
-<div>
-<p class="font-label-sm text-secondary uppercase tracking-widest mb-xs">Schedule Management</p>
-<h2 class="font-h2 text-primary">Appointment Agenda</h2>
-</div>
-<button class="bg-primary text-white px-md py-3 rounded-xl font-label-sm flex items-center gap-2 hover:bg-secondary transition-all active:scale-95 shadow-ambient">
-<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
-                Add Appointment
-            </button>
-</section>
-<!-- Weekly Calendar Navigation -->
-<section class="bg-white rounded-2xl border border-outline-variant/30 p-gutter mb-gutter shadow-ambient">
-<div class="flex items-center justify-between mb-gutter">
-<div class="flex items-center gap-xs">
-<button class="p-2 hover:bg-surface-container rounded-full transition-colors">
-<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
-</button>
-<h3 class="font-h3 text-on-surface">October 2023</h3>
-<button class="p-2 hover:bg-surface-container rounded-full transition-colors">
-<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
-</button>
-</div>
-<div class="flex gap-2">
-<button class="px-4 py-2 text-label-sm bg-surface-container-high text-primary rounded-full font-semibold">Week</button>
-<button class="px-4 py-2 text-label-sm text-slate-500 hover:bg-surface-container rounded-full">Day</button>
-</div>
-</div>
-<!-- Calendar Grid (Weekly View) -->
-<div class="grid grid-cols-7 gap-xs">
-<div class="flex flex-col items-center gap-2 p-4 rounded-xl border border-transparent">
-<span class="font-caption text-slate-400">MON</span>
-<span class="font-h3 text-on-surface-variant">23</span>
-</div>
-<div class="flex flex-col items-center gap-2 p-4 rounded-xl border border-transparent">
-<span class="font-caption text-slate-400">TUE</span>
-<span class="font-h3 text-on-surface-variant">24</span>
-</div>
-<div class="flex flex-col items-center gap-2 p-4 rounded-xl border border-transparent">
-<span class="font-caption text-slate-400">WED</span>
-<span class="font-h3 text-on-surface-variant">25</span>
-</div>
-<div class="flex flex-col items-center gap-2 p-4 rounded-xl border border-primary bg-sky-50 shadow-sm">
-<span class="font-caption text-secondary font-bold">THU</span>
-<span class="font-h3 text-primary">26</span>
-<div class="w-1 h-1 bg-primary rounded-full"></div>
-</div>
-<div class="flex flex-col items-center gap-2 p-4 rounded-xl border border-transparent">
-<span class="font-caption text-slate-400">FRI</span>
-<span class="font-h3 text-on-surface-variant">27</span>
-</div>
-<div class="flex flex-col items-center gap-2 p-4 rounded-xl border border-transparent bg-slate-50/50">
-<span class="font-caption text-slate-300">SAT</span>
-<span class="font-h3 text-slate-300">28</span>
-</div>
-<div class="flex flex-col items-center gap-2 p-4 rounded-xl border border-transparent bg-slate-50/50">
-<span class="font-caption text-slate-300">SUN</span>
-<span class="font-h3 text-slate-300">29</span>
-</div>
-</div>
-</section>
-<!-- Appointments List -->
-<section class="space-y-sm">
-<div class="flex items-center justify-between mb-md">
-<h4 class="font-label-sm text-slate-500 uppercase tracking-wider">Today's Schedule — Oct 26</h4>
-<div class="flex items-center gap-xs text-secondary cursor-pointer hover:underline">
-<span class="material-symbols-outlined text-[18px]" data-icon="filter_list">filter_list</span>
-<span class="font-label-sm">Filters</span>
-</div>
-</div>
-<!-- Appointment Card 1 -->
-<div class="bg-white p-gutter rounded-2xl border border-outline-variant/20 flex flex-col md:flex-row md:items-center justify-between gap-gutter hover:border-primary/30 transition-all group shadow-sm hover:shadow-ambient">
-<div class="flex items-center gap-gutter">
-<div class="flex flex-col items-center justify-center bg-surface-container-low w-20 h-20 rounded-xl">
-<span class="font-h3 text-primary">09:30</span>
-<span class="font-caption text-secondary uppercase font-bold">AM</span>
-</div>
-<div class="flex items-center gap-md">
-<img alt="Patient Sarah Jenkins" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="portrait of a middle-aged woman with glasses, smiling softly, natural lighting, high-end studio photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS0m4qLGQ8SsiLpF272LbUhvnp_O-XPlAtWEPLL6Nl91V-eR_mdHvJMXQwXbS8Y0pn0TooJFM6Mdwz7nu29H6fkAfezm-Vm-6KTghGsYGkjDQB1SPTZ7dkcQWyaoDc5x5XmB0cyVItEwRK8u26wgy0Euajk0gEPAv3rU-Ix28WajSpjubtP90-boi5leb3FfmJisUswI5vULZ21p4ZJrB0gS4LA9NY1rd6tCjxFmwiwMF8iyFVdUARwnlULl-y50xI3QvbxTqlcoI5"/>
-<div>
-<h5 class="font-body-lg font-bold text-primary">Sarah Jenkins</h5>
-<p class="font-caption text-slate-500 flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="medical_information">medical_information</span>
-                                Comprehensive Eye Exam
-                            </p>
-</div>
-</div>
-</div>
-<div class="flex items-center justify-between md:justify-end gap-gutter">
-<div class="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-label-sm border border-emerald-100 flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        Confirmed
-                    </div>
-<button class="p-2 text-slate-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-</div>
-<!-- Appointment Card 2 -->
-<div class="bg-white p-gutter rounded-2xl border border-outline-variant/20 flex flex-col md:flex-row md:items-center justify-between gap-gutter hover:border-primary/30 transition-all group shadow-sm hover:shadow-ambient">
-<div class="flex items-center gap-gutter">
-<div class="flex flex-col items-center justify-center bg-surface-container-low w-20 h-20 rounded-xl">
-<span class="font-h3 text-primary">11:15</span>
-<span class="font-caption text-secondary uppercase font-bold">AM</span>
-</div>
-<div class="flex items-center gap-md">
-<img alt="Patient Michael Chen" class="w-12 h-12 rounded-full object-cover grayscale group-hover:grayscale-0 transition-all" data-alt="portrait of a professional asian man in his 30s, clean background, medical office lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNQ_FvQvp3Rz0giy23ukcys52MV-oppYQ2GrBD1snqWaRUkit9eyhYLWoJmELX6epVJQrBJ6qG3PkRZWRppe_GhR-LQ7XM2-OqWAjipnKPvoQ8JzFpmqnpATnjTwZT0tjzxkR35e8KC2luX4VF4rt_BcrfVyDW738tOePDETx4n8P699eBHQVkpVj8Lo4Qp_ME3o0lUq-EWHHdxS4eCGGylGyOD3gD66e3g_oZlSWOJp5NKUsk4_ZHteLhmgjWtjiBAiGsPISIU1Z-"/>
-<div>
-<h5 class="font-body-lg font-bold text-primary">Michael Chen</h5>
-<p class="font-caption text-slate-500 flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="visibility">visibility</span>
-                                Contact Lens Fitting
-                            </p>
-</div>
-</div>
-</div>
-<div class="flex items-center justify-between md:justify-end gap-gutter">
-<div class="px-4 py-1.5 rounded-full bg-amber-50 text-amber-700 font-label-sm border border-amber-100 flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]" data-icon="pending">pending</span>
-                        Pending
-                    </div>
-<button class="p-2 text-slate-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-</div>
-<!-- Appointment Card 3 -->
-<div class="bg-white/60 p-gutter rounded-2xl border border-outline-variant/10 flex flex-col md:flex-row md:items-center justify-between gap-gutter opacity-70">
-<div class="flex items-center gap-gutter">
-<div class="flex flex-col items-center justify-center bg-slate-100 w-20 h-20 rounded-xl">
-<span class="font-h3 text-slate-400">08:00</span>
-<span class="font-caption text-slate-400 uppercase font-bold">AM</span>
-</div>
-<div class="flex items-center gap-md">
-<img alt="Patient Elena Rodriguez" class="w-12 h-12 rounded-full object-cover grayscale" data-alt="headshot of a hispanic woman, neutral expression, soft natural indoor lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-_j3gOe59_7WKSSdBdSPH98iPDzh9YimpAgFvlYhr0n7x6kKOVe1PsUrNgYLAY-PeOiKumiWbVEWwBtBwJhdajvRqvbc5_81kvzSyb-YOnoixtnRNMoU3lVQ0h6TLPUSJv9GUcF_MyW7XiCeRWeAFwuA9npxoOOp80KThmoDuJglOuRrcTSG_u0CPIauzRb6xHQ8asbzVGDsBFpRLSvJONhIs-Dt_qB_93yKk9e_QsRyAgYSHEJZt5YF5PVZCR94kFYZPMwgBncoW"/>
-<div>
-<h5 class="font-body-lg font-bold text-slate-400">Elena Rodriguez</h5>
-<p class="font-caption text-slate-400 flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="history">history</span>
-                                Follow-up (Glaucoma)
-                            </p>
-</div>
-</div>
-</div>
-<div class="flex items-center justify-between md:justify-end gap-gutter">
-<div class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-500 font-label-sm border border-slate-200 flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]" data-icon="task_alt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">task_alt</span>
-                        Attended
-                    </div>
-<button class="p-2 text-slate-300">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-</div>
-<!-- Appointment Card 4 -->
-<div class="bg-white p-gutter rounded-2xl border border-outline-variant/20 flex flex-col md:flex-row md:items-center justify-between gap-gutter hover:border-primary/30 transition-all group shadow-sm hover:shadow-ambient">
-<div class="flex items-center gap-gutter">
-<div class="flex flex-col items-center justify-center bg-surface-container-low w-20 h-20 rounded-xl">
-<span class="font-h3 text-primary">02:45</span>
-<span class="font-caption text-secondary uppercase font-bold">PM</span>
-</div>
-<div class="flex items-center gap-md">
-<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-primary font-bold">DR</div>
-<div>
-<h5 class="font-body-lg font-bold text-primary">David Russo</h5>
-<p class="font-caption text-slate-500 flex items-center gap-1">
-<span class="material-symbols-outlined text-[14px]" data-icon="emergency">emergency</span>
-                                Urgent Care - Foreign Body
-                            </p>
-</div>
-</div>
-</div>
-<div class="flex items-center justify-between md:justify-end gap-gutter">
-<div class="px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-700 font-label-sm border border-emerald-100 flex items-center gap-1">
-<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">check_circle</span>
-                        Confirmed
-                    </div>
-<button class="p-2 text-slate-400 hover:text-primary transition-colors">
-<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
-</button>
-</div>
-</div>
-</section>
+
+<main class="pt-20 pb-24 px-6 max-w-7xl mx-auto">
+    
+    <section class="mt-8 mb-8 flex justify-between items-end">
+        <div>
+            <p class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-1">Gestión de Horarios</p>
+            <h2 class="text-3xl font-black text-slate-800 font-manrope">Agenda de Citas</h2>
+        </div>
+        <button class="bg-primary text-white p-3 rounded-2xl shadow-lg active:scale-95 transition-transform">
+            <span class="material-symbols-outlined">add</span>
+        </button>
+    </section>
+
+    <section class="bg-white rounded-3xl border border-slate-100 p-6 mb-8 shadow-ambient">
+        <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-2">
+                <button class="p-2 hover:bg-slate-50 rounded-full transition-colors">
+                    <span class="material-symbols-outlined">chevron_left</span>
+                </button>
+                <h3 class="font-bold text-lg text-slate-700">Octubre 2023</h3>
+                <button class="p-2 hover:bg-slate-50 rounded-full transition-colors">
+                    <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+            </div>
+            <span class="text-[10px] font-bold bg-primary/10 text-primary px-3 py-1 rounded-full uppercase">Hoy</span>
+        </div>
+
+        <div class="grid grid-cols-7 gap-2">
+            <div class="flex flex-col items-center gap-1 p-2">
+                <span class="text-[9px] font-bold text-slate-400 uppercase">Lun</span>
+                <span class="text-sm font-bold text-slate-600">23</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 p-2">
+                <span class="text-[9px] font-bold text-slate-400 uppercase">Mar</span>
+                <span class="text-sm font-bold text-slate-600">24</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 p-2 bg-primary text-white rounded-2xl shadow-md">
+                <span class="text-[9px] font-bold uppercase opacity-80">Mie</span>
+                <span class="text-sm font-black">25</span>
+                <div class="w-1 h-1 bg-white rounded-full"></div>
+            </div>
+            </div>
+    </section>
+
+    <section class="space-y-4">
+        <div class="flex items-center justify-between mb-4">
+            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Citas para hoy</h4>
+            <span class="material-symbols-outlined text-slate-400">filter_list</span>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-50 flex items-center justify-between hover:border-primary/20 transition-all shadow-sm">
+            <div class="flex items-center gap-4">
+                <div class="bg-slate-50 px-3 py-2 rounded-2xl text-center">
+                    <p class="text-sm font-black text-primary leading-tight">09:30</p>
+                    <p class="text-[9px] font-bold text-secondary uppercase">am</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-800 text-sm">Sarah Jenkins</h5>
+                    <p class="text-[11px] text-slate-500">Examen Visual Completo</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <button onclick="CONFIG.enviarMensajeOptica('5939XXXXXXXX', 'Hola Sarah, te recordamos tu cita hoy a las 09:30 am.')" class="text-emerald-500 hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-xl">chat</span>
+                </button>
+                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+            </div>
+        </div>
+
+        <div class="bg-white p-5 rounded-3xl border border-slate-50 flex items-center justify-between shadow-sm opacity-60">
+            <div class="flex items-center gap-4">
+                <div class="bg-slate-50 px-3 py-2 rounded-2xl text-center">
+                    <p class="text-sm font-black text-slate-400 leading-tight">08:00</p>
+                    <p class="text-[9px] font-bold text-slate-400 uppercase">am</p>
+                </div>
+                <div>
+                    <h5 class="font-bold text-slate-400 text-sm">Elena Rodriguez</h5>
+                    <p class="text-[11px] text-slate-300">Control de Glaucoma</p>
+                </div>
+            </div>
+            <span class="material-symbols-outlined text-emerald-500 text-sm">check_circle</span>
+        </div>
+
+    </section>
+
+    <footer class="footer"></footer>
 </main>
-<!-- BottomNavBar from JSON -->
-<nav class="md:hidden fixed bottom-0 w-full z-50 pb-safe bg-white border-t border-slate-200 shadow-sm flex justify-around items-center h-16 px-2">
-<a class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-<span class="font-manrope text-[11px] font-medium">Dashboard</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="group">group</span>
-<span class="font-manrope text-[11px] font-medium">Patients</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
-<span class="font-manrope text-[11px] font-medium">Clinical</span>
-</a>
-<a class="flex flex-col items-center justify-center bg-sky-50 text-sky-900 rounded-2xl px-3 py-1.5 transition-all duration-300 font-bold" href="#">
-<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
-<span class="font-manrope text-[11px]">Agenda</span>
-</a>
-<a class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5 transition-all duration-300" href="#">
-<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
-<span class="font-manrope text-[11px] font-medium">Orders</span>
-</a>
-</nav>
-<!-- Floating Action Button for Mobile -->
-<button class="md:hidden fixed bottom-24 right-6 bg-primary-container text-on-primary-container w-14 h-14 rounded-full flex items-center justify-center shadow-lg active:scale-95 transition-all">
-<span class="material-symbols-outlined" data-icon="add">add</span>
-</button>
-</body></html>
+
+<script src="api-config.js"></script>
+<script src="app.js"></script>
+<script src="nav-component.js"></script>
+
+</body>
+</html>
