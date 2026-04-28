@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Agenda de Citas | Sistema Óptico</title>
+    <title>Agenda de Citas | VisionCare</title>
     
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -14,8 +14,8 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#1A8D8C", // Turquesa Óptica
-                        "secondary": "#6C247B", // Violeta Good Look
+                        "primary": "#1A8D8C", 
+                        "secondary": "#6C247B", 
                         "surface": "#f8f9ff"
                     }
                 }
@@ -25,109 +25,199 @@
     <style>
         .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
         .shadow-ambient { box-shadow: 0 4px 20px -2px rgba(26, 141, 140, 0.1); }
+        
+        /* Animación Modal */
+        #modalNuevaCita.flex .modal-content { transform: scale(1); opacity: 1; }
+        .modal-content { transform: scale(0.95); opacity: 0; transition: all 0.2s ease-out; }
     </style>
 </head>
 
-<body class="bg-surface font-['Inter'] text-slate-800">
+<body class="bg-surface font-inter text-slate-800 antialiased">
 
 <header class="fixed top-0 w-full z-50 border-b border-slate-100 bg-white px-6 py-3 flex justify-between items-center h-16 shadow-sm">
     <div class="flex items-center gap-3">
         <span class="material-symbols-outlined text-primary text-3xl">visibility</span>
-        <h1 id="app-name" class="text-xl font-black text-primary font-manrope tracking-tight uppercase">CARGANDO...</h1>
+        <h1 id="app-name" class="text-xl font-black text-primary font-manrope tracking-tight uppercase">VisionCare</h1>
     </div>
     <div class="flex items-center gap-4">
-        <div class="w-9 h-9 rounded-full bg-slate-100 border border-primary/10 flex items-center justify-center overflow-hidden">
+        <div class="w-9 h-9 rounded-full bg-slate-100 border border-primary/10 flex items-center justify-center overflow-hidden cursor-pointer">
             <span class="material-symbols-outlined text-primary">person</span>
         </div>
     </div>
 </header>
 
-<main class="pt-20 pb-24 px-6 max-w-7xl mx-auto">
+<main class="pt-24 pb-32 px-6 max-w-7xl mx-auto min-h-screen">
     
-    <section class="mt-8 mb-8 flex justify-between items-end">
+    <section class="mb-8 flex justify-between items-end">
         <div>
-            <p class="text-[10px] font-bold text-secondary uppercase tracking-[0.2em] mb-1">Gestión de Horarios</p>
-            <h2 class="text-3xl font-black text-slate-800 font-manrope">Agenda de Citas</h2>
+            <p class="text-[10px] font-black text-secondary uppercase tracking-[0.2em] mb-1">Gestión de Horarios</p>
+            <h2 class="text-3xl font-extrabold text-slate-800 font-manrope">Agenda de Citas</h2>
         </div>
-        <button class="bg-primary text-white p-3 rounded-2xl shadow-lg active:scale-95 transition-transform">
-            <span class="material-symbols-outlined">add</span>
+        <button onclick="abrirModalCita()" class="bg-primary text-white p-4 rounded-2xl shadow-lg shadow-primary/20 active:scale-95 transition-all">
+            <span class="material-symbols-outlined block">add</span>
         </button>
     </section>
 
-    <section class="bg-white rounded-3xl border border-slate-100 p-6 mb-8 shadow-ambient">
-        <div class="flex items-center justify-between mb-6">
+    <section class="bg-white rounded-[2.5rem] border border-slate-100 p-6 mb-8 shadow-ambient">
+        <div class="flex items-center justify-between mb-6 px-2">
             <div class="flex items-center gap-2">
-                <button class="p-2 hover:bg-slate-50 rounded-full transition-colors">
+                <button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-400">
                     <span class="material-symbols-outlined">chevron_left</span>
                 </button>
                 <h3 class="font-bold text-lg text-slate-700">Octubre 2023</h3>
-                <button class="p-2 hover:bg-slate-50 rounded-full transition-colors">
+                <button class="p-2 hover:bg-slate-50 rounded-full transition-colors text-slate-400">
                     <span class="material-symbols-outlined">chevron_right</span>
                 </button>
             </div>
-            <span class="text-[10px] font-bold bg-primary/10 text-primary px-3 py-1 rounded-full uppercase">Hoy</span>
+            <span class="text-[10px] font-black bg-primary/10 text-primary px-3 py-1 rounded-full uppercase tracking-tighter">Hoy</span>
         </div>
 
-        <div class="grid grid-cols-7 gap-2">
-            <div class="flex flex-col items-center gap-1 p-2">
-                <span class="text-[9px] font-bold text-slate-400 uppercase">Lun</span>
+        <div class="grid grid-cols-7 gap-1">
+            <div class="flex flex-col items-center gap-1 p-3 text-slate-300">
+                <span class="text-[9px] font-black uppercase">Dom</span>
+                <span class="text-sm font-bold">22</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 p-3 hover:bg-slate-50 rounded-2xl cursor-pointer">
+                <span class="text-[9px] font-black text-slate-400 uppercase">Lun</span>
                 <span class="text-sm font-bold text-slate-600">23</span>
             </div>
-            <div class="flex flex-col items-center gap-1 p-2">
-                <span class="text-[9px] font-bold text-slate-400 uppercase">Mar</span>
+            <div class="flex flex-col items-center gap-1 p-3 hover:bg-slate-50 rounded-2xl cursor-pointer">
+                <span class="text-[9px] font-black text-slate-400 uppercase">Mar</span>
                 <span class="text-sm font-bold text-slate-600">24</span>
             </div>
-            <div class="flex flex-col items-center gap-1 p-2 bg-primary text-white rounded-2xl shadow-md">
-                <span class="text-[9px] font-bold uppercase opacity-80">Mie</span>
+            <div class="flex flex-col items-center gap-1 p-3 bg-primary text-white rounded-2xl shadow-lg shadow-primary/30 transform scale-110">
+                <span class="text-[9px] font-black uppercase opacity-80">Mie</span>
                 <span class="text-sm font-black">25</span>
-                <div class="w-1 h-1 bg-white rounded-full"></div>
+                <div class="w-1.5 h-1.5 bg-white rounded-full"></div>
             </div>
+            <div class="flex flex-col items-center gap-1 p-3 hover:bg-slate-50 rounded-2xl cursor-pointer">
+                <span class="text-[9px] font-black text-slate-400 uppercase">Jue</span>
+                <span class="text-sm font-bold text-slate-600">26</span>
             </div>
+            <div class="flex flex-col items-center gap-1 p-3 hover:bg-slate-50 rounded-2xl cursor-pointer">
+                <span class="text-[9px] font-black text-slate-400 uppercase">Vie</span>
+                <span class="text-sm font-bold text-slate-600">27</span>
+            </div>
+            <div class="flex flex-col items-center gap-1 p-3 hover:bg-slate-50 rounded-2xl cursor-pointer">
+                <span class="text-[9px] font-black text-slate-400 uppercase">Sab</span>
+                <span class="text-sm font-bold text-slate-600">28</span>
+            </div>
+        </div>
     </section>
 
     <section class="space-y-4">
-        <div class="flex items-center justify-between mb-4">
-            <h4 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Citas para hoy</h4>
-            <span class="material-symbols-outlined text-slate-400">filter_list</span>
+        <div class="flex items-center justify-between mb-4 px-2">
+            <h4 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.15em]">Citas para hoy</h4>
+            <button class="text-slate-400 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined text-xl">filter_list</span>
+            </button>
         </div>
 
-        <div class="bg-white p-5 rounded-3xl border border-slate-50 flex items-center justify-between hover:border-primary/20 transition-all shadow-sm">
+        <div class="bg-white p-5 rounded-[2rem] border border-slate-50 flex items-center justify-between hover:border-primary/20 transition-all shadow-sm group">
             <div class="flex items-center gap-4">
-                <div class="bg-slate-50 px-3 py-2 rounded-2xl text-center">
+                <div class="bg-teal-50 px-3 py-2 rounded-2xl text-center border border-primary/5">
                     <p class="text-sm font-black text-primary leading-tight">09:30</p>
-                    <p class="text-[9px] font-bold text-secondary uppercase">am</p>
+                    <p class="text-[9px] font-black text-secondary uppercase">am</p>
                 </div>
                 <div>
-                    <h5 class="font-bold text-slate-800 text-sm">Sarah Jenkins</h5>
-                    <p class="text-[11px] text-slate-500">Examen Visual Completo</p>
+                    <h5 class="font-bold text-slate-800 text-sm group-hover:text-primary transition-colors">Sarah Jenkins</h5>
+                    <p class="text-[11px] text-slate-500 font-medium">Examen Visual Completo</p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
-                <button onclick="CONFIG.enviarMensajeOptica('5939XXXXXXXX', 'Hola Sarah, te recordamos tu cita hoy a las 09:30 am.')" class="text-emerald-500 hover:scale-110 transition-transform">
-                    <span class="material-symbols-outlined text-xl">chat</span>
+                <button onclick="enviarRecordatorio('Sarah Jenkins')" class="w-10 h-10 rounded-full bg-emerald-50 text-emerald-500 hover:bg-emerald-500 hover:text-white transition-all flex items-center justify-center">
+                    <span class="material-symbols-outlined text-lg">chat</span>
                 </button>
-                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></div>
+                <div class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div>
             </div>
         </div>
 
-        <div class="bg-white p-5 rounded-3xl border border-slate-50 flex items-center justify-between shadow-sm opacity-60">
+        <div class="bg-white p-5 rounded-[2rem] border border-slate-50 flex items-center justify-between shadow-sm opacity-60">
             <div class="flex items-center gap-4">
-                <div class="bg-slate-50 px-3 py-2 rounded-2xl text-center">
+                <div class="bg-slate-100 px-3 py-2 rounded-2xl text-center">
                     <p class="text-sm font-black text-slate-400 leading-tight">08:00</p>
-                    <p class="text-[9px] font-bold text-slate-400 uppercase">am</p>
+                    <p class="text-[9px] font-black text-slate-400 uppercase">am</p>
                 </div>
                 <div>
-                    <h5 class="font-bold text-slate-400 text-sm">Elena Rodriguez</h5>
+                    <h5 class="font-bold text-slate-400 text-sm line-through">Elena Rodriguez</h5>
                     <p class="text-[11px] text-slate-300">Control de Glaucoma</p>
                 </div>
             </div>
-            <span class="material-symbols-outlined text-emerald-500 text-sm">check_circle</span>
+            <span class="material-symbols-outlined text-emerald-500 text-xl">check_circle</span>
         </div>
 
     </section>
-
-    <footer class="footer"></footer>
 </main>
+
+<div id="modalNuevaCita" class="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-[100] hidden items-center justify-center p-4">
+    <div class="modal-content bg-white w-full max-w-lg rounded-[2.5rem] shadow-2xl overflow-hidden">
+        <div class="p-8 border-b border-slate-50 flex justify-between items-center bg-primary text-white">
+            <div>
+                <h2 class="text-2xl font-black font-manrope">Agendar Cita</h2>
+                <p class="text-teal-50 text-xs opacity-80 uppercase tracking-widest mt-1">Reserva de Turno</p>
+            </div>
+            <button onclick="cerrarModalCita()" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white/30 transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        
+        <form id="formCita" class="p-8 space-y-5">
+            <div>
+                <label class="text-[10px] font-black text-slate-400 uppercase ml-2 mb-2 block">Paciente</label>
+                <input type="text" placeholder="Buscar paciente..." class="w-full bg-slate-50 border-none rounded-2xl px-5 py-3 text-sm focus:ring-2 focus:ring-primary/20">
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="text-[10px] font-black text-slate-400 uppercase ml-2 mb-2 block">Fecha</label>
+                    <input type="date" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-3 text-sm focus:ring-2 focus:ring-primary/20 text-slate-500">
+                </div>
+                <div>
+                    <label class="text-[10px] font-black text-slate-400 uppercase ml-2 mb-2 block">Hora</label>
+                    <input type="time" class="w-full bg-slate-50 border-none rounded-2xl px-5 py-3 text-sm focus:ring-2 focus:ring-primary/20 text-slate-500">
+                </div>
+            </div>
+            <div>
+                <label class="text-[10px] font-black text-slate-400 uppercase ml-2 mb-2 block">Motivo</label>
+                <select class="w-full bg-slate-50 border-none rounded-2xl px-5 py-3 text-sm focus:ring-2 focus:ring-primary/20">
+                    <option>Examen Visual</option>
+                    <option>Control de Medida</option>
+                    <option>Prueba Lentes de Contacto</option>
+                    <option>Entrega de Lentes</option>
+                </select>
+            </div>
+        </form>
+
+        <div class="p-8 bg-slate-50 flex gap-3">
+            <button onclick="cerrarModalCita()" class="flex-1 py-4 text-slate-400 text-xs font-bold uppercase hover:text-slate-600 transition-colors">Cerrar</button>
+            <button onclick="confirmarCita()" class="flex-[2] py-4 bg-primary text-white rounded-2xl text-xs font-bold uppercase shadow-lg shadow-primary/20 hover:scale-[1.02] transition-transform">Confirmar Cita</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function abrirModalCita() {
+        const modal = document.getElementById('modalNuevaCita');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function cerrarModalCita() {
+        const modal = document.getElementById('modalNuevaCita');
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+    }
+
+    function confirmarCita() {
+        alert("Cita agendada correctamente en VisionCare ✅");
+        cerrarModalCita();
+    }
+
+    function enviarRecordatorio(nombre) {
+        if(confirm("¿Enviar recordatorio de WhatsApp a " + nombre + "?")) {
+            alert("WhatsApp enviado con éxito 💬");
+        }
+    }
+</script>
 
 <script src="api-config.js"></script>
 <script src="app.js"></script>
