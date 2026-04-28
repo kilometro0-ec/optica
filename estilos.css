@@ -1,80 +1,138 @@
 /* =========================================
-   PALETA DE COLORES - ÓPTICA GOOD LOOK
+   PALETA DE COLORES - OPTI CONTROL
    ========================================= */
 :root {
-  /* Colores principales extraídos del logo */
-  --color-principal: #1A8D8C;   /* Turquesa ÓPTICA */
-  --color-secundario: #6C247B;  /* Violeta Good Look */
+  /* Colores extraídos del logo de Óptica */
+  --color-principal: #1A8D8C;   /* Turquesa */
+  --color-secundario: #6C247B;  /* Violeta */
 
   /* Colores de fondo y superficie */
-  --fondo-app: #FFFFFF;         /* Blanco limpio */
-  --superficie-card: #F7F7F7;  /* Gris muy claro para tarjetas */
+  --fondo-app: #F8F9FF;         /* Blanco azulado muy sutil */
+  --superficie-card: #FFFFFF;   /* Blanco puro para tarjetas */
+  --fondo-footer: #FFFFFF;
 
   /* Colores de texto y bordes */
-  --texto-titulos: #333333;     /* Casi negro para buena lectura */
+  --texto-titulos: #0B1C30;     /* Azul muy oscuro para contraste */
   --texto-base: #555555;        /* Gris oscuro para párrafos */
-  --borde-sutil: #DDDDDD;       /* Gris claro para líneas */
+  --texto-suave: #94A3B8;       /* Gris claro para detalles */
+  --borde-sutil: #E2E8F0;       /* Gris claro para separadores */
 
   /* Colores para interacción */
-  --hover-principal: #14706F;  /* Turquesa más oscuro para hover */
+  --hover-principal: #14706F;
+  --hover-secundario: #561D62;
 }
 
 /* =========================================
-   APLICACIÓN DE ESTILOS GENERALES
+   RESET Y ESTILOS BASE
    ========================================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   background-color: var(--fondo-app);
   color: var(--texto-base);
-  font-family: sans-serif; /* O la fuente que ya tengas */
+  font-family: 'Inter', 'Manrope', sans-serif; /* Fuentes profesionales */
+  line-height: 1.6;
+  -webkit-tap-highlight-color: transparent; /* Evita el cuadro azul en móviles */
 }
 
-/* Encabezados y Títulos */
-h1, h2, h3, h4 {
-  color: var(--color-principal); /* Usamos el turquesa principal */
-  font-weight: bold;
+/* Tipografía Dinámica */
+h1, h2, h3 {
+  font-family: 'Manrope', sans-serif;
+  color: var(--texto-titulos);
+  font-weight: 700;
 }
 
-h1 {
-  /* Esto hará que el título principal de cada página se vea como el logo */
-  text-transform: uppercase;
-}
-
-/* Enlaces (links) */
-a {
+#app-name {
   color: var(--color-principal);
-  text-decoration: none;
+  letter-spacing: -0.02em;
 }
 
-a:hover {
-  color: var(--hover-principal);
-}
-
-/* Botones Principales */
+/* =========================================
+   COMPONENTES (BOTONES)
+   ========================================= */
 .btn-primary {
   background-color: var(--color-principal);
   color: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: 12px;
   border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .btn-primary:hover {
   background-color: var(--hover-principal);
+  transform: translateY(-1px);
 }
 
-/* Botones Secundarios o de Acento */
 .btn-accent {
-  background-color: var(--color-secundario); /* Usamos el violeta */
+  background-color: var(--color-secundario);
   color: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: 12px;
   border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-/* Iconos de Acento (ej. para WhatsApp) */
+.btn-accent:hover {
+  background-color: var(--hover-secundario);
+  box-shadow: 0 4px 12px rgba(108, 36, 123, 0.2);
+}
+
+/* =========================================
+   TARJETAS Y LISTADOS
+   ========================================= */
+.card-paciente {
+  background-color: var(--superficie-card);
+  border: 1px solid var(--borde-sutil);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 12px;
+  transition: border-color 0.3s ease;
+}
+
+.card-paciente:hover {
+  border-color: var(--color-principal);
+}
+
 .icon-accent {
   color: var(--color-secundario);
 }
 
-/* Tarjetas y Contenedores (ej. para lista de pacientes) */
-.card-paciente {
-  background-color: var(--superficie-card);
-  border: 1px solid var(--borde-sutil);
+/* =========================================
+   NAVEGACIÓN Y FOOTER
+   ========================================= */
+nav {
+  background-color: var(--fondo-footer);
+  border-top: 1px solid var(--borde-sutil);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
 }
+
+.nav-active {
+  color: var(--color-principal) !important;
+  font-weight: 700;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  color: var(--texto-suave);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Utilidades de borde y estados */
+.border-primary { border-color: var(--color-principal); }
+.text-primary { color: var(--color-principal); }
+.text-secondary { color: var(--color-secundario); }
