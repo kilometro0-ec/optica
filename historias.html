@@ -9,26 +9,42 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
 
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: "#00355f",
+        secondary: "#1460a6",
+        background: "#f8f9ff",
+        surface: "#ffffff",
+        text: "#0b1c30"
+      }
+    }
+  }
+}
+</script>
+
 <style>
 body { font-family: 'Inter', sans-serif; }
 </style>
 
 </head>
 
-<body class="bg-[#f8f9ff] text-[#0b1c30] min-h-screen pb-32">
+<body class="bg-background text-text min-h-screen pb-32">
 
 <!-- HEADER -->
 <header class="fixed top-0 w-full z-50 border-b bg-white flex justify-between items-center px-6 py-3">
 
 <div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-[#00355f]">visibility</span>
-<h1 class="text-xl font-extrabold text-[#00355f]">OptiControl</h1>
+<span class="material-symbols-outlined text-primary">visibility</span>
+<h1 class="text-xl font-extrabold text-primary">OptiControl</h1>
 </div>
 
-<div class="flex gap-6">
-<a href="inicio.html" class="text-[#00355f] font-bold">Dashboard</a>
-<a href="pacientes.html" class="text-gray-500 hover:text-[#00355f]">Patients</a>
-<a href="agenda.html" class="text-gray-500 hover:text-[#00355f]">Agenda</a>
+<div class="hidden md:flex gap-6">
+<a href="inicio.html" class="text-primary font-bold">Dashboard</a>
+<a href="pacientes.html" class="text-gray-500 hover:text-primary">Patients</a>
+<a href="agenda.html" class="text-gray-500 hover:text-primary">Agenda</a>
 </div>
 
 </header>
@@ -36,46 +52,50 @@ body { font-family: 'Inter', sans-serif; }
 <!-- CONTENIDO -->
 <main class="pt-24 px-6 max-w-7xl mx-auto">
 
-<h2 class="text-2xl font-bold mb-4">Historia Clínica</h2>
+<!-- HEADER PACIENTE -->
+<section class="mb-6">
+<h2 class="text-2xl font-bold text-primary">Historia Clínica</h2>
+<p class="text-gray-500">Paciente: Mateo Richardson</p>
+</section>
 
 <form id="formHistoria" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
 
 <!-- OJO DERECHO -->
 <div class="bg-white p-4 rounded-xl border">
-<h3 class="font-bold mb-2">Ojo Derecho (OD)</h3>
+<h3 class="font-bold mb-2 text-primary">Ojo Derecho (OD)</h3>
 
-<input id="od_sph" placeholder="SPH" class="w-full border p-2 mb-2"/>
-<input id="od_cyl" placeholder="CYL" class="w-full border p-2 mb-2"/>
-<input id="od_axis" placeholder="AXIS" class="w-full border p-2"/>
+<input id="od_sph" placeholder="SPH" class="w-full border p-2 mb-2 rounded"/>
+<input id="od_cyl" placeholder="CYL" class="w-full border p-2 mb-2 rounded"/>
+<input id="od_axis" placeholder="AXIS" class="w-full border p-2 rounded"/>
 
 </div>
 
 <!-- OJO IZQUIERDO -->
 <div class="bg-white p-4 rounded-xl border">
-<h3 class="font-bold mb-2">Ojo Izquierdo (OI)</h3>
+<h3 class="font-bold mb-2 text-primary">Ojo Izquierdo (OI)</h3>
 
-<input id="oi_sph" placeholder="SPH" class="w-full border p-2 mb-2"/>
-<input id="oi_cyl" placeholder="CYL" class="w-full border p-2 mb-2"/>
-<input id="oi_axis" placeholder="AXIS" class="w-full border p-2"/>
+<input id="oi_sph" placeholder="SPH" class="w-full border p-2 mb-2 rounded"/>
+<input id="oi_cyl" placeholder="CYL" class="w-full border p-2 mb-2 rounded"/>
+<input id="oi_axis" placeholder="AXIS" class="w-full border p-2 rounded"/>
 
 </div>
 
 <!-- DIAGNOSTICO -->
 <div class="lg:col-span-2 bg-white p-4 rounded-xl border">
-<h3 class="font-bold mb-2">Diagnóstico</h3>
-<textarea id="diagnostico" class="w-full border p-2"></textarea>
+<h3 class="font-bold mb-2 text-primary">Diagnóstico</h3>
+<textarea id="diagnostico" class="w-full border p-2 rounded"></textarea>
 </div>
 
 <!-- RECETA -->
 <div class="lg:col-span-2 bg-white p-4 rounded-xl border">
-<h3 class="font-bold mb-2">Receta</h3>
-<textarea id="receta" class="w-full border p-2"></textarea>
+<h3 class="font-bold mb-2 text-primary">Receta</h3>
+<textarea id="receta" class="w-full border p-2 rounded"></textarea>
 </div>
 
 <!-- BOTONES -->
 <div class="lg:col-span-2 flex gap-4">
 
-<button type="submit" id="btnGuardar" class="bg-[#00355f] text-white px-6 py-2 rounded">
+<button type="submit" class="bg-primary text-white px-6 py-2 rounded">
 Guardar
 </button>
 
@@ -84,7 +104,7 @@ Cancelar
 </button>
 
 <button type="button" id="btnWhatsApp" class="bg-green-500 text-white px-6 py-2 rounded">
-Enviar WhatsApp
+WhatsApp
 </button>
 
 </div>
@@ -92,6 +112,36 @@ Enviar WhatsApp
 </form>
 
 </main>
+
+<!-- NAV INFERIOR -->
+<nav class="fixed bottom-0 w-full bg-white border-t flex justify-around items-center h-16">
+
+<a href="inicio.html" class="flex flex-col items-center text-gray-500">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-xs">Dashboard</span>
+</a>
+
+<a href="pacientes.html" class="flex flex-col items-center text-gray-500">
+<span class="material-symbols-outlined">group</span>
+<span class="text-xs">Patients</span>
+</a>
+
+<a href="historia.html" class="flex flex-col items-center text-primary font-bold">
+<span class="material-symbols-outlined">medical_services</span>
+<span class="text-xs">Clinical</span>
+</a>
+
+<a href="agenda.html" class="flex flex-col items-center text-gray-500">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="text-xs">Agenda</span>
+</a>
+
+<a href="ordenes.html" class="flex flex-col items-center text-gray-500">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="text-xs">Orders</span>
+</a>
+
+</nav>
 
 <!-- FOOTER -->
 <footer class="footer text-center py-4 text-gray-500"></footer>
@@ -110,41 +160,31 @@ document.getElementById("formHistoria").addEventListener("submit", function(e){
 
     const data = {
         od: {
-            sph: document.getElementById("od_sph").value,
-            cyl: document.getElementById("od_cyl").value,
-            axis: document.getElementById("od_axis").value
+            sph: od_sph.value,
+            cyl: od_cyl.value,
+            axis: od_axis.value
         },
         oi: {
-            sph: document.getElementById("oi_sph").value,
-            cyl: document.getElementById("oi_cyl").value,
-            axis: document.getElementById("oi_axis").value
+            sph: oi_sph.value,
+            cyl: oi_cyl.value,
+            axis: oi_axis.value
         },
-        diagnostico: document.getElementById("diagnostico").value,
-        receta: document.getElementById("receta").value
+        diagnostico: diagnostico.value,
+        receta: receta.value
     };
 
     localStorage.setItem("historiaClinica", JSON.stringify(data));
-
-    alert("Historia guardada correctamente ✅");
+    alert("Guardado correctamente");
 });
 
 // CANCELAR
-document.getElementById("btnCancelar").addEventListener("click", () => {
-    document.getElementById("formHistoria").reset();
-});
+btnCancelar.onclick = () => formHistoria.reset();
 
 // WHATSAPP
-document.getElementById("btnWhatsApp").addEventListener("click", () => {
-
-    const mensaje = `Hola, su diagnóstico está listo en OptiControl`;
-
-    const numero = "593XXXXXXXXX"; // TU NUMERO
-
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
-    window.open(url, "_blank");
-
-});
+btnWhatsApp.onclick = () => {
+    const mensaje = "Su diagnóstico está listo en OptiControl";
+    window.open(`https://wa.me/593XXXXXXXXX?text=${encodeURIComponent(mensaje)}`);
+};
 
 </script>
 
