@@ -1,12 +1,12 @@
-// Configuración base (reemplazar con tus datos reales)
-const firebaseConfig = {
-  apiKey: "TU_API_KEY",
-  authDomain: "opticontrol.firebaseapp.com",
-  projectId: "opticontrol",
-  storageBucket: "opticontrol.appspot.com",
-  messagingSenderId: "XXXXX",
-  appId: "XXXXX"
-};
+// CONFIGURACIÓN BASE (puedes cambiar luego por Firebase real)
 
-// Inicializar Firebase
-firebase.initializeApp(firebaseConfig);
+console.log("API Config cargada");
+
+// Ejemplo de función simulada
+function enviarWhatsApp(mensaje, numero) {
+  console.log("Enviando mensaje a:", numero);
+  console.log("Mensaje:", mensaje);
+}
+
+// Ejemplo de uso
+// enviarWhatsApp("Tu cita es mañana", "0999999999");
