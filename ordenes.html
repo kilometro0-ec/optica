@@ -1,1 +1,414 @@
+<!DOCTYPE html>
 
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VisionCare | Order Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#f8f9ff",
+                        "on-secondary-fixed-variant": "#004882",
+                        "on-tertiary-fixed-variant": "#444749",
+                        "inverse-surface": "#213145",
+                        "secondary-container": "#78b3ff",
+                        "primary": "#00355f",
+                        "surface-dim": "#cbdbf5",
+                        "inverse-primary": "#a0c9ff",
+                        "outline-variant": "#c2c7d1",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c4c7c9",
+                        "on-surface": "#0b1c30",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#0b1c30",
+                        "surface-container-high": "#dce9ff",
+                        "on-secondary-fixed": "#001c38",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface-variant": "#42474f",
+                        "secondary-fixed": "#d3e3ff",
+                        "surface-bright": "#f8f9ff",
+                        "primary-container": "#0f4c81",
+                        "tertiary": "#313436",
+                        "on-error": "#ffffff",
+                        "outline": "#727780",
+                        "surface-container-highest": "#d3e4fe",
+                        "on-tertiary-container": "#b8bbbc",
+                        "surface-container": "#e5eeff",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#474b4d",
+                        "inverse-on-surface": "#eaf1ff",
+                        "primary-fixed": "#d2e4ff",
+                        "secondary": "#1460a6",
+                        "primary-fixed-dim": "#a0c9ff",
+                        "tertiary-fixed": "#e0e3e5",
+                        "on-secondary-container": "#00457c",
+                        "on-error-container": "#93000a",
+                        "background": "#f8f9ff",
+                        "surface-tint": "#2d6197",
+                        "on-primary-fixed": "#001c37",
+                        "surface-variant": "#d3e4fe",
+                        "secondary-fixed-dim": "#a3c9ff",
+                        "on-primary-container": "#8ebdf9",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed": "#191c1e",
+                        "on-primary-fixed-variant": "#07497d",
+                        "surface-container-low": "#eff4ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "md": "24px",
+                        "gutter": "24px",
+                        "lg": "48px",
+                        "base": "4px",
+                        "margin": "32px",
+                        "sm": "16px",
+                        "xs": "8px",
+                        "xl": "80px"
+                    },
+                    "fontFamily": {
+                        "h3": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "h2": ["Manrope"],
+                        "h1": ["Manrope"],
+                        "body-lg": ["Inter"],
+                        "caption": ["Inter"]
+                    },
+                    "fontSize": {
+                        "h3": ["24px", {"lineHeight": "32px", "letterSpacing": "0", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-sm": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}],
+                        "h2": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "h1": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8f9ff;
+        }
+        .order-card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-body-md text-on-background min-h-screen pb-24 md:pb-0 md:pl-80 pt-16">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-6 py-3 bg-white border-b border-slate-100">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-sky-900" data-icon="visibility">visibility</span>
+<span class="text-xl font-extrabold text-sky-900 font-manrope tracking-tight">VisionCare</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-50 transition-colors">
+<span class="material-symbols-outlined text-slate-500" data-icon="search">search</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-sky-100 border border-sky-200 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Portrait of a professional optometrist in a clean white coat with a friendly smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWl0qreerr5x4wlRKswVwWo5tNdBKYeSgc79E6h9SYVIC-HrpvmOMBuzdapNhjoH8gZy5SDRKAJWYwXdyEu3hB_hlgh8HC7k0q14dD9EUv9S36m0PiolEfoieCkNIDTLgNVOhNj2v_2Zhb8K3KRDOjmcsNpeAVRr4Vt1TB0HYkRIbspsqt4vy2Vk-c1b9ftGpc7SfaXRO8tem167am0rjPMxTn5UcH5zBgbLZhFSGXrLcsFCKloJ6UplhJu2lNScGgAjoliUSSdlT3"/>
+</div>
+</div>
+</header>
+<!-- NavigationDrawer (Desktop Only) -->
+<aside class="hidden md:flex fixed left-0 top-0 h-full w-80 z-[60] flex-col p-6 bg-white border-r border-slate-200 shadow-2xl font-manrope">
+<div class="mb-10 flex flex-col gap-2">
+<div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50">
+<div class="w-12 h-12 rounded-full bg-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close up portrait of Dr. Adrian Miller, a senior ophthalmologist in professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCczMlC4qHNUr_N8EZDrCib0gcdqaSOdTxeAkn4BMx3l4zhP5R2pxBfPG4ywOG9RTnp4e-5M88P5Hf4vJlQjY6oP7lB6idSKmivWip6Wa6yB5gmMWHZLK3allJI7pGgq37_k0W7vvxjYOWrZOPvdMW3m5jeFIjihH0VybByF3kXeH5oy1euGVHkjJaL2awrlFPNmAoCpibBiT18YBVmz2O8Ur-92DN1VjFP5KTtqY7lqaMBmvjuDEBsJ5pR5S9a-v5q3_SPeUvDZxLF"/>
+</div>
+<div>
+<p class="font-bold text-sky-900">Dr. Adrian Miller</p>
+<p class="text-xs text-slate-500">Clinical Director</p>
+<p class="text-[10px] text-slate-400 mt-1">Optic ID: 8829</p>
+</div>
+</div>
+</div>
+<nav class="flex flex-col gap-1 flex-1">
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-medium">Patients</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-sky-900 bg-sky-50 font-semibold rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-medium">Orders</span>
+</a>
+<div class="my-4 border-t border-slate-100"></div>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="font-medium">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+<span class="font-medium">Reports</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+<span class="font-medium">Billing</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-slate-600 hover:bg-slate-100 rounded-lg transition-all duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="px-6 py-8 max-w-7xl mx-auto">
+<!-- Header & Stats Section -->
+<div class="mb-10">
+<h1 class="font-h1 text-h1 text-primary mb-2">Lens Order Management</h1>
+<p class="text-on-surface-variant font-body-md">Track, manage, and verify patient lens prescriptions in real-time.</p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+<div class="bg-white p-6 rounded-xl border border-outline-variant flex justify-between items-center">
+<div>
+<p class="text-caption font-label-sm text-outline uppercase tracking-wider">Active Orders</p>
+<p class="text-h2 font-h2 text-primary mt-1">24</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container flex items-center justify-center">
+<span class="material-symbols-outlined text-secondary" data-icon="pending_actions">pending_actions</span>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant flex justify-between items-center">
+<div>
+<p class="text-caption font-label-sm text-outline uppercase tracking-wider">Ready for Pickup</p>
+<p class="text-h2 font-h2 text-secondary mt-1">12</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-fixed-variant" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-outline-variant flex justify-between items-center">
+<div>
+<p class="text-caption font-label-sm text-outline uppercase tracking-wider">Today's Deliveries</p>
+<p class="text-h2 font-h2 text-primary mt-1">08</p>
+</div>
+<div class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 bg-white p-4 rounded-xl border border-outline-variant">
+<div class="flex items-center gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide">
+<button class="px-5 py-2 bg-primary text-white rounded-full text-label-sm whitespace-nowrap transition-all">All Orders</button>
+<button class="px-5 py-2 bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant rounded-full text-label-sm whitespace-nowrap transition-all">In Process</button>
+<button class="px-5 py-2 bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant rounded-full text-label-sm whitespace-nowrap transition-all">Ready</button>
+<button class="px-5 py-2 bg-surface hover:bg-surface-container text-on-surface-variant border border-outline-variant rounded-full text-label-sm whitespace-nowrap transition-all">Delivered</button>
+</div>
+<div class="relative min-w-[300px]">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-2 rounded-lg border border-outline-variant bg-surface focus:ring-2 focus:ring-secondary focus:border-secondary outline-none transition-all text-body-md" placeholder="Search ID or Patient..." type="text"/>
+</div>
+</div>
+<!-- Order List (Bento-inspired Cards) -->
+<div class="order-card-grid">
+<!-- Order 1 -->
+<div class="bg-white rounded-2xl border border-outline-variant hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
+<div class="p-6 border-b border-slate-50">
+<div class="flex justify-between items-start mb-4">
+<span class="text-caption font-bold text-secondary uppercase tracking-widest">#ORD-2931</span>
+<span class="px-3 py-1 bg-surface-container text-secondary text-[11px] font-bold rounded-full uppercase">In Process</span>
+</div>
+<h3 class="text-h3 font-h3 text-primary">Eleanor Fant</h3>
+<p class="text-caption text-on-surface-variant mt-1">Last Updated: 2h ago</p>
+</div>
+<div class="p-6 flex-1">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="lens">lens</span>
+<div class="text-label-sm text-on-surface">Single Vision, Anti-Reflective</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="calendar_today">calendar_today</span>
+<div class="text-label-sm text-on-surface">Ordered: Oct 12, 2023</div>
+</div>
+</div>
+<!-- Collapsible Specifications (Visible in "Detailed View") -->
+<div class="mt-6 pt-6 border-t border-dashed border-outline-variant">
+<details class="group">
+<summary class="flex items-center justify-between cursor-pointer list-none text-label-sm font-bold text-secondary uppercase tracking-tight">
+                                Lens Specifications
+                                <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 grid grid-cols-2 gap-4">
+<div class="bg-surface p-3 rounded-lg border border-slate-100">
+<p class="text-[10px] text-outline font-bold uppercase mb-1">Right Eye (OD)</p>
+<div class="flex flex-col gap-1 text-label-sm">
+<div class="flex justify-between"><span>SPH</span> <span class="font-bold">-2.75</span></div>
+<div class="flex justify-between"><span>CYL</span> <span class="font-bold">-0.50</span></div>
+<div class="flex justify-between"><span>AXIS</span> <span class="font-bold">160</span></div>
+</div>
+</div>
+<div class="bg-surface p-3 rounded-lg border border-slate-100">
+<p class="text-[10px] text-outline font-bold uppercase mb-1">Left Eye (OS)</p>
+<div class="flex flex-col gap-1 text-label-sm">
+<div class="flex justify-between"><span>SPH</span> <span class="font-bold">-3.00</span></div>
+<div class="flex justify-between"><span>CYL</span> <span class="font-bold">-0.75</span></div>
+<div class="flex justify-between"><span>AXIS</span> <span class="font-bold">015</span></div>
+</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="px-6 py-4 bg-slate-50 flex items-center justify-between">
+<button class="text-secondary font-bold text-label-sm flex items-center gap-1 hover:underline">
+<span class="material-symbols-outlined text-sm" data-icon="print">print</span> Print Ticket
+                    </button>
+<button class="text-primary font-bold text-label-sm flex items-center gap-1 hover:underline">
+                        View History
+                    </button>
+</div>
+</div>
+<!-- Order 2 -->
+<div class="bg-white rounded-2xl border border-outline-variant hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
+<div class="p-6 border-b border-slate-50">
+<div class="flex justify-between items-start mb-4">
+<span class="text-caption font-bold text-secondary uppercase tracking-widest">#ORD-2944</span>
+<span class="px-3 py-1 bg-secondary text-white text-[11px] font-bold rounded-full uppercase">Ready</span>
+</div>
+<h3 class="text-h3 font-h3 text-primary">Marcus Holloway</h3>
+<p class="text-caption text-on-surface-variant mt-1">Ready since yesterday</p>
+</div>
+<div class="p-6 flex-1">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="lens_blur">lens_blur</span>
+<div class="text-label-sm text-on-surface">Varifocal, BlueLight Filter</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="calendar_today">calendar_today</span>
+<div class="text-label-sm text-on-surface">Ordered: Oct 10, 2023</div>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-dashed border-outline-variant">
+<details class="group">
+<summary class="flex items-center justify-between cursor-pointer list-none text-label-sm font-bold text-secondary uppercase tracking-tight">
+                                Lens Specifications
+                                <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 grid grid-cols-2 gap-4">
+<div class="bg-surface p-3 rounded-lg border border-slate-100">
+<p class="text-[10px] text-outline font-bold uppercase mb-1">Right Eye (OD)</p>
+<div class="flex flex-col gap-1 text-label-sm">
+<div class="flex justify-between"><span>SPH</span> <span class="font-bold">+1.25</span></div>
+<div class="flex justify-between"><span>ADD</span> <span class="font-bold">+2.00</span></div>
+</div>
+</div>
+<div class="bg-surface p-3 rounded-lg border border-slate-100">
+<p class="text-[10px] text-outline font-bold uppercase mb-1">Left Eye (OS)</p>
+<div class="flex flex-col gap-1 text-label-sm">
+<div class="flex justify-between"><span>SPH</span> <span class="font-bold">+1.50</span></div>
+<div class="flex justify-between"><span>ADD</span> <span class="font-bold">+2.00</span></div>
+</div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="px-6 py-4 bg-slate-50 flex items-center justify-between">
+<button class="bg-secondary text-white px-4 py-2 rounded-lg font-bold text-label-sm hover:bg-primary transition-colors flex items-center gap-2">
+                        Mark Delivered <span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</div>
+</div>
+<!-- Order 3 -->
+<div class="bg-white rounded-2xl border border-outline-variant hover:shadow-lg transition-shadow overflow-hidden flex flex-col">
+<div class="p-6 border-b border-slate-50">
+<div class="flex justify-between items-start mb-4">
+<span class="text-caption font-bold text-secondary uppercase tracking-widest">#ORD-2899</span>
+<span class="px-3 py-1 bg-outline-variant text-white text-[11px] font-bold rounded-full uppercase">Delivered</span>
+</div>
+<h3 class="text-h3 font-h3 text-primary">Sarah Jenkins</h3>
+<p class="text-caption text-on-surface-variant mt-1">Delivered: Today, 10:15 AM</p>
+</div>
+<div class="p-6 flex-1">
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="flare">flare</span>
+<div class="text-label-sm text-on-surface">Polarized Transition Lenses</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-outline" data-icon="person_pin_circle">person_pin_circle</span>
+<div class="text-label-sm text-on-surface">Home Delivery (Courier)</div>
+</div>
+</div>
+<div class="mt-6 pt-6 border-t border-dashed border-outline-variant">
+<details class="group">
+<summary class="flex items-center justify-between cursor-pointer list-none text-label-sm font-bold text-secondary uppercase tracking-tight">
+                                Lens Specifications
+                                <span class="material-symbols-outlined group-open:rotate-180 transition-transform" data-icon="expand_more">expand_more</span>
+</summary>
+<div class="mt-4 bg-surface-container p-4 rounded-xl flex items-center gap-4">
+<span class="material-symbols-outlined text-secondary" data-icon="info">info</span>
+<p class="text-caption italic">Specifications archived. Click to view full ophthalmic record.</p>
+</div>
+</details>
+</div>
+</div>
+<div class="px-6 py-4 bg-slate-50">
+<button class="w-full text-center text-outline font-bold text-label-sm hover:text-primary">
+                        Download Invoice
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 pb-safe bg-white border-t border-slate-200 shadow-sm flex justify-around items-center h-16 px-2">
+<button class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-manrope text-[11px] font-medium">Dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-manrope text-[11px] font-medium">Patients</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5">
+<span class="material-symbols-outlined" data-icon="medical_services">medical_services</span>
+<span class="font-manrope text-[11px] font-medium">Clinical</span>
+</button>
+<button class="flex flex-col items-center justify-center text-slate-500 px-3 py-1.5">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-manrope text-[11px] font-medium">Agenda</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-sky-50 text-sky-900 rounded-2xl px-3 py-1.5">
+<span class="material-symbols-outlined" data-icon="shopping_cart" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+<span class="font-manrope text-[11px] font-bold">Orders</span>
+</button>
+</nav>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-6 md:bottom-12 md:right-12 w-14 h-14 bg-primary text-white rounded-full shadow-lg hover:shadow-2xl transition-all flex items-center justify-center scale-100 hover:scale-105 active:scale-95 group">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span class="absolute right-16 bg-primary text-white px-3 py-1 rounded text-label-sm whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity">New Order</span>
+</button>
+</body></html>
