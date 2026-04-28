@@ -2,22 +2,17 @@
    PALETA DE COLORES - OPTI CONTROL
    ========================================= */
 :root {
-  /* Colores extraídos del logo de Óptica */
   --color-principal: #1A8D8C;   /* Turquesa */
   --color-secundario: #6C247B;  /* Violeta */
 
-  /* Colores de fondo y superficie */
-  --fondo-app: #F8F9FF;         /* Blanco azulado muy sutil */
-  --superficie-card: #FFFFFF;   /* Blanco puro para tarjetas */
-  --fondo-footer: #FFFFFF;
+  --fondo-app: #F8F9FF;
+  --superficie-card: #FFFFFF;
+  
+  --texto-titulos: #0B1C30;
+  --texto-base: #555555;
+  --texto-suave: #94A3B8;
+  --borde-sutil: #E2E8F0;
 
-  /* Colores de texto y bordes */
-  --texto-titulos: #0B1C30;     /* Azul muy oscuro para contraste */
-  --texto-base: #555555;        /* Gris oscuro para párrafos */
-  --texto-suave: #94A3B8;       /* Gris claro para detalles */
-  --borde-sutil: #E2E8F0;       /* Gris claro para separadores */
-
-  /* Colores para interacción */
   --hover-principal: #14706F;
   --hover-secundario: #561D62;
 }
@@ -34,9 +29,9 @@
 body {
   background-color: var(--fondo-app);
   color: var(--texto-base);
-  font-family: 'Inter', 'Manrope', sans-serif; /* Fuentes profesionales */
+  font-family: 'Inter', 'Manrope', sans-serif;
   line-height: 1.6;
-  -webkit-tap-highlight-color: transparent; /* Evita el cuadro azul en móviles */
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Tipografía Dinámica */
@@ -49,6 +44,29 @@ h1, h2, h3 {
 #app-name {
   color: var(--color-principal);
   letter-spacing: -0.02em;
+}
+
+/* =========================================
+   FIX CRÍTICO PARA ICONOS (MATERIAL SYMBOLS)
+   ========================================= */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Soporte para ligaduras - ESTO HACE QUE APAREZCAN LOS DIBUJOS */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
 }
 
 /* =========================================
@@ -71,6 +89,7 @@ h1, h2, h3 {
 .btn-primary:hover {
   background-color: var(--hover-principal);
   transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 141, 140, 0.2);
 }
 
 .btn-accent {
@@ -84,13 +103,8 @@ h1, h2, h3 {
   transition: all 0.3s ease;
 }
 
-.btn-accent:hover {
-  background-color: var(--hover-secundario);
-  box-shadow: 0 4px 12px rgba(108, 36, 123, 0.2);
-}
-
 /* =========================================
-   TARJETAS Y LISTADOS
+   TARJETAS Y UTILIDADES
    ========================================= */
 .card-paciente {
   background-color: var(--superficie-card);
@@ -98,24 +112,13 @@ h1, h2, h3 {
   border-radius: 16px;
   padding: 16px;
   margin-bottom: 12px;
-  transition: border-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .card-paciente:hover {
   border-color: var(--color-principal);
-}
-
-.icon-accent {
-  color: var(--color-secundario);
-}
-
-/* =========================================
-   NAVEGACIÓN Y FOOTER
-   ========================================= */
-nav {
-  background-color: var(--fondo-footer);
-  border-top: 1px solid var(--borde-sutil);
-  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
 .nav-active {
@@ -132,7 +135,7 @@ nav {
   letter-spacing: 1px;
 }
 
-/* Utilidades de borde y estados */
-.border-primary { border-color: var(--color-principal); }
+/* Clases de ayuda rápidas */
 .text-primary { color: var(--color-principal); }
 .text-secondary { color: var(--color-secundario); }
+.bg-surface { background-color: var(--fondo-app); }
